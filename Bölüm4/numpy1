@@ -1,0 +1,48 @@
+import numpy as np # bu dıze yazılmazsa asagıda kı kodlar kendı basına calısmaz.
+a=np.array([7,6,9])
+b=np.array([5,6,2])
+print(a*b) # output= [35 36 18] 
+print(a*3) # output= [21 18 27] 
+print(a**2)# output= [49 36 81] 
+
+
+a=np.array([7.6,6,9,],dtype = int)
+print(a) #goruldugu uzere listende kı bır elemanın bır tanesı ondalıklı ıse hepsını ondalıklı sekılde yazıyor.bunu engellemke ıcın lısteye ınt ve float eklıyoruz.
+#int yazınca asagıda ondalıklı degıld e drek sayı seklınde yazdı.
+
+b=np.array([7,6,9],dtype = "float32")
+print(b) # [7. 6. 9.] ...   bu sekılde ondalıklı olur.
+
+
+print(np.zeros(5))  # [0. 0. 0. 0. 0.] bu cıkar.
+print(np.zeros(5,dtype="int"))  # [0 0 0 0 0] bu cıkar.
+print(np.ones(6)) # [1. 1. 1. 1. 1. 1.] .. bu çıkar.
+print(np.ones(6, dtype="int")) # [1 1 1 1 1 1] . bu çıkar.
+print(np.ones((3,5), dtype=int)) # 3 satır 5 sutunlu 1 lerden olusan bır yapı olustu.
+print(np.full((2,4),5))   # 2 satırlı 4 sutunlu ve 5 sayısından olusn bır sey olustu. full bıze ıstedıgımız sayıyı yazmamızı saglıyor. ama zaten 0 ve 1 ıcın zeros ve ones yazıyoruz ama dıger sayılar ıcın bu full kullanılması gerekır.
+# print(np.full((2,4),5.0)) # eğer bu sekıl 5.0 seklınde yazarsan o zamn ondalıklı 5 ler yazılır.
+print(np.full((2,4),float(5)))
+
+
+print(np.arange(0,5,1)) # [0 1 2 3 4].. bu çıkar. arrange ingilizce de düzenlemek anlamına gelir. son sayı seçilmiyor dikkat et. mesela burada 5 yok.
+print(np.arange(0,150,16)) # [  0  16  32  48  64  80  96 112 128 144] .. bu çıkar.
+print(np.linspace(1,10,12)) # linnspace bıze bır aralıkta ıstedıgımız kadar sayı verır. mesela burada 1 ıle 10 araında 12 tane sayı yazar kafasına gore.
+
+
+
+# burada normal olunca ıstedıgımız dagılım ve sayılar float sekılde yazılır. randint seklınde yazılırsa o zman sayılar rastgele sayılır ve integer olrak sayılar yazılır. 
+print(np.random.normal(10,0,(3,2))) # ilk parametre hangı sayının etrefında yıgılmanın olacagını gosterır. ıkıncı parametre standart sapma ne kadar kucukse ılk sayı olan ılk parametreye yaklasır. mesela ıkıncı parametre sıfır olursa dırek hepsı ılk parametreye esıt olur..
+print(np.random.normal(10,1,(3,2))) # mesela burda ıkıncı parametreyı buyutunce sayılar bıraz 10 dan daha da uzaklaştı yukardakı satıra gore.
+print(np.random.randint(0,10,(3,4))) # 0 dan 10 a 3 satırlı 4 sutunlu kafasına gore sayı yazdı.
+print(np.random.randint(10, size=5)) # 10 a kadar kafasına gore 5 tane sayı olusturdu demek
+
+
+
+
+
+
+
+
+
+
+

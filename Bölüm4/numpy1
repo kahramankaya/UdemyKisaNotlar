@@ -37,6 +37,103 @@ print(np.random.randint(0,10,(3,4))) # 0 dan 10 a 3 satırlı 4 sutunlu kafasın
 print(np.random.randint(10, size=5)) # 10 a kadar kafasına gore 5 tane sayı olusturdu demek
 
 
+# array ozellıkler:tek bır satır demek bır boyut denılıyor.  cok satır varsa matrıx falan denılıyor.
+# ndim(boyut sayısı), shape(boyut bilgisi), size(toplam eleman sayısı), dtype(array veri tipi)
+import numpy as np
+print(np.random.randint(0,10,size=10)) # 0 dan 10 kadar 10 sayı yazar.
+a=np.random.randint(10,size=10) # eger 0 yazmayıp sadece 10 yazarsan dırek kendısı 0 dan ıtıbaren alır otomotık.
+print(a.ndim) # 1 .. bu çıkar. bu boyut sayısını verır.
+print(a.shape) # (10,).. bu çıkar. burda tek boyutluydu demekkı bu tek olan boyuttta 10 tane eleman var.
+print(a.size) # 10 .. bu çıkar.
+
+
+
+
+# baska bır ornek
+b=np.random.randint(10,size=(5,3))
+print(b)
+print(b.ndim) # 2 bu cıkar. 2 boyutlu yanı.
+print(b.shape) # (5,3) .. bu cıkar. 5 e 3 seklınde olusturmus demk. yanı boyut bılgısını verdı.
+print(b.size) # 15 .. bu cıkar. 15 eleman ıcerıyor yanı.
+print(b.dtype) # int32 .. bu çıkar.
+
+
+
+
+
+
+
+# en sevdıklerımden bır tane metot:
+print(np.arange(1,10).reshape((3,3))) # 1 den 10 a kadar olan sayılar 3 satır ve 3 sutun halınde sırasıyla yazılır.
+print(np.arange(2,10).reshape((3,3)))  # burda hata cıkar cunku8 degerı 3 e 3 seklınde yazamayız. en az 9 deger olması gerkır.
+a=np.arange(1,16)
+print(a) # [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15] bu cıkar.
+print(a.reshape(3,5)) # burda goruldugu uzere 3 satırlı 5 sutunlu hale koydum ve de ıkı boyutlu hale geldı. ıkı boyutlu oldugunu surdan anlayabılırsın ıkı koselı parantez var ıken yukarda ıse tek bır tane koselı parantez var.
+# bu cıkıtı. artık bu ıkı boyutlu yanı artık bır matrıx tır.
+[[ 1  2  3  4  5]
+ [ 6  7  8  9 10]
+ [11 12 13 14 15]]
+
+
+
+
+
+
+x=np.arange(1,101).reshape(20,5) # bunun aşağıdakınden farkı 1 den 100 e kadar sayılar ıstedıgımız matrıxte tum sayılar yazılır..
+print(x)
+
+y=np.random.randint(100,size=(20,5)) # bu ıse yukardakınden farkı 0 ıle 100 arasında kı sayıları kafasına gore yazar. tum sayılar yazılmaz 
+print(y)
+
+
+
+
+
+
+
+
+
+# arrayları birleştirme. listleler tek bir tane listede toplanıyor.
+import numpy as np
+wer=np.array([7,9,54])
+fgh=np.array([8,45,74])
+hjk=np.array([78,63,15])
+print(np.concatenate([wer,fgh])) # [ 7  9 54  8 45 74]
+print(np.concatenate([wer,fgh,hjk])) # [ 7  9 54  8 45 74 78 63 15]
+klş=np.array([[45,78,95],
+              [71,5,64]])
+print(np.concatenate([klş,klş])) # yukardakı ıkı boyutlu olan 2 satırlı 3 sutunlu olanı ıkı kere yazdırdık. bunu ıkı kere alt alta yazdık.
+
+
+
+
+
+
+
+import numpy as np
+a=np.array([[2,1,43],
+           [23,45,98]])
+print(np.concatenate([a,a],axis=0)) # eger burası 0 ıse satır basında ıkısını bırlestırır.
+[[ 2  1 43]
+ [23 45 98]
+ [ 2  1 43]
+ [23 45 98]] 
+
+
+eger 1 olursa sutun basında ıkısını bırlestırır. boyle olusur.
+a=np.array([[2,1,43],
+           [23,45,98]])
+print(np.concatenate([a,a],axis=1)) output= aşağıda ki satırda.
+[[ 2  1 43  2  1 43]
+ [23 45 98 23 45 98]]
+
+
+
+
+
+
+
+
 
 
 

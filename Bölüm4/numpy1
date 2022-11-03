@@ -120,7 +120,7 @@ print(np.concatenate([a,a],axis=0)) # eger burası 0 ıse satır basında ıkıs
  [23 45 98]] 
 
 
-eger 1 olursa sutun basında ıkısını bırlestırır. boyle olusur.
+eger axis=1 olursa sutun basında ıkısını bırlestırır. boyle olusur.
 a=np.array([[2,1,43],
            [23,45,98]])
 print(np.concatenate([a,a],axis=1)) output= aşağıda ki satırda.
@@ -131,9 +131,129 @@ print(np.concatenate([a,a],axis=1)) output= aşağıda ki satırda.
 
 
 
+import numpy as np
+x=np.array([1,5,43,50,40,41,87,71])
+y=np.split(x,[3,5]) # split ayırmaya yarıyor. kimi ayır diyor x yazıyoruz. ordaki 3 ve 5 sıra sayısını verır. yanı yukarda bastan 3. ye kadar bır array olustur. daha sonra 5. ye kadar ayır. zaten ıkısını ayırınca sonda bır tane kalıyor onun ıcın de bır yazmaya gerek yok.
+print(y)  # [array([ 1,  5, 43]), array([50, 40]), array([41, 87, 71])]
+a,b,c=y #  a b c dırek boyle esıtlersen olusan 3 array sırayla bunlara daılır. ve onları cagırdıgıda her bır array gelır.
+print(a) # [ 1  5 43]
+print(b) # [50 40]
+print(c) # [41 87 71]
 
 
 
+
+
+
+
+#iki boyutlu olanları bolme soyle yapılır.:
+import numpy as np
+jh=np.arange(18).reshape(6,3)
+print(jh) # 0 dan 17 ye kadar 6 satÄ±r 3 sutun halýnde iki boyutlu halýnde yazýlýr..
+print(np.vsplit(jh,[3]))
+
+#BU AŞAĞIDA KI SATIRA GÖRE AYIRIR
+kj=np.vsplit(jh,[4]) # toplam 6 satır var. buraya 4 yazmaz: bastan asagıdakı 4 e kadar satırları al anlamına gelır. burda kı sayıyı degıstırerek ne oldugunu anlarsın zaten.
+ust,alt=kj
+print(ust)
+print(alt)
+# BU AŞAĞIDA Kİ SÜTUNA GORE AYIRIR. MESELA ORAYA 2 YAZDIK MATRIXI 2. SUTUNDAN BOL.
+klp=np.hsplit(jh,[2])
+print(klp)
+sağ,sol=klp
+print(sağ)
+
+
+
+
+
+
+
+# tek boyutluda sort lama
+import numpy as np
+wq=np.array([5,9,4,1,78])
+print(np.sort(wq))  # [ 1  4  5  9 78] 
+print(wq) # gordugun yukarda kı satırın sort seklı oyle olsa bu satırı goruldugu uzere kalıcı degısıklıge yol acmadı.
+wq.sort() # goruldugu gıbı boyle yaparak kalıcı degısıklık yaptık. alt satırda dırek degıskenı cagırdık degısımı gorduk. kalıcı degısıklık bır degıskene aktarılarakta yapılabılır.
+print(wq)
+
+
+
+
+
+# iki boyutluda sortlama:
+import numpy as np
+gee=np.random.randint(5,20,(5,3))
+print(gee)
+print(np.sort(gee, axis=0)) # her bır sutun kucukten buyuge sıralanır
+print(np.sort(gee, axis=1)) # her bır satır kucukten buyuge sıralanır.
+
+
+
+
+
+
+# iki boyutluda sortlama:
+import numpy as np
+gee=np.random.normal(20,5,(3,3))
+print(gee)
+print(np.sort(gee, axis=0)) # her bır sutun kucukten buyuge sıralanır
+print(np.sort(gee, axis=1)) # her bır satır kucukten buyuge sıralanır.
+
+
+
+
+
+
+
+
+
+# TEK BOYUTTA İNDEX BULMA:
+import numpy as np
+kaho=np.random.randint(0,15,size=15) # size (15,2)  bu şekilde yazılırsa iki boyutlu anlamı taşır ama bu örnekte ki gibi dire size=(15) denilirse o zaman tek boyut olmuş olur.
+print(kaho)
+print(kaho[0]) # 1. eleman çıkar.
+print(kaho[0:5]) # 0. indexten 4. indexe kadar yazdırır.
+print(kaho[:6])
+kaho[0]=12
+print(kaho[-2]) # bu sondan ikinci index anlamına gelir. sondan 3. değil.
+print(kaho)
+
+
+
+
+
+
+#İKİ BOYUTTA İNDEX BULMA:
+import numpy as np 
+ohak=np.arange(20).reshape((5,4))
+print(ohak)
+print(ohak[1,1])
+print(ohak[2,1])
+ohak[2,1]=567
+print(ohak)
+ohak[2,1]=567.76
+print(ohak)
+
+
+ohak=np.random.normal(10,5,(3,2))
+print(ohak)
+print(ohak[1,1])
+print(ohak[2,1])
+ohak[2,1]=567
+print(ohak)
+ohak[2,1]=567.76
+print(ohak)
+
+import numpy as np 
+ohak=np.random.randint(1,20,(5,4))
+print(ohak)
+print(ohak[1,1])
+print(ohak[2,1])
+ohak[2,1]=567
+print(ohak)
+ohak[2,1]=567.76
+print(ohak)
 
 
 

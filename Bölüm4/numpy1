@@ -291,4 +291,17 @@ print(a[1,4]) # burada  direk array dan bir sayı seçiyoruz. 0. satırdan 3. s�
 
 
 
+# seçtiğimiz arrayı ana array dan abğımsık yapmak.
+import numpy as np
+kaho=np.array([4,5,65,78,51,6,89,88,541])
+
+kaho[2]=99 # biz böyle bir değiştirme işlemi yaptığımızda dire yukardaki ana array değişmekte. ama bazen bu isetmediğimiz bir şey olabilir.
+# bu yüzden copy() kullanmamız gerekir.
+print(kaho)
+
+bayram=kaho[0:5].copy() # bu şekilde seçtiğimiz arrayı ana arraydan bağımsız yaptık. artık ana array değişmez yaptığımız değişkenlerle.
+bayram[1]=23
+print(bayram)
+
+
 

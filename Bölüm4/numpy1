@@ -291,7 +291,7 @@ print(a[1,4]) # burada  direk array dan bir sayı seçiyoruz. 0. satırdan 3. s�
 
 
 
-# seçtiğimiz arrayı ana array dan abğımsık yapmak.
+# seçtiğimiz arrayı ana array dan bağımsık yapmak.
 import numpy as np
 kaho=np.array([4,5,65,78,51,6,89,88,541])
 
@@ -302,6 +302,20 @@ print(kaho)
 bayram=kaho[0:5].copy() # bu şekilde seçtiğimiz arrayı ana arraydan bağımsız yaptık. artık ana array değişmez yaptığımız değişkenlerle.
 bayram[1]=23
 print(bayram)
+
+
+
+
+#FANCY işlemi
+import numpy as np
+# tek boyutlu da fancy işlemi
+yut6=np.array([5,5,21,45,39,78,895,1,571])
+print(yut6)
+# indexleri bir listede toplamak.
+print([yut6[0],yut6[2],yut6[4],yut6[3],yut6[1],yut6[8]]) # [  5  21  39  45   5 571] .. bu çıkar. eger lste çok büyükse tek tek böyle indexleri paranteze yazıp aynı listede toplamak zor olacaktır. bu yüzden aşapıda belirttiğim fancy ile pratik bir yol var.
+rt=[0,2,4,3,1,8]
+print(yut6[rt]) # [  5  21  39  45   5 571] .. bu çıkar. kısa yoldan yoldan yaptık. yukarda ki yol uzun yoldu. işte buna fancy işlemi denilir.
+
 
 
 

@@ -1,3 +1,25 @@
+pandas numpy e alternatif olarak doğmamıştır. numpy ile yapamadığımız bazı şeyleri pandas ile yapabiliyoruz. bu yüzden hem numpy hemde pandas ı bilmek lazım.
+
+import pandas as pd
+kaho=pd.Series([78,9,5,4,5,6,18,45,7,99,566])
+print(kaho) # görüldüğü üzere veriler index bilgisi ile yazıldı.
+print(kaho.axes) # [RangeIndex(start=0, stop=11, step=1)]görüldüğü üzere axes ile index bilgisine eriştik. 0 dan başlayarak 5 e kadar 5 dahıl değil. ve  bir bir atlayarak göstermiş.
+print(kaho.size) # eleman sayısını verir.
+print(kaho.ndim)
+print(kaho.dtype)
+print(kaho.values) # değerleri  gösterir.
+print(kaho.head()) # burda parantz içinde herhangi bir sayı yok ise ilk 5 eleman gösterilir.
+print(kaho.head(3)) # ilk 3 eleman yazdırılır.
+print(kaho.tail()) # son bir kaç elemana gözatmak için tail kullanılır. zaten ingilizcede o anlama gelir.
+kaho1=pd.Series([78,9,45,656,879,35],index=[1,2,3,4,5,6])
+print(kaho1) # görüldüğü üzere indexleri kendimizde belirleyebiliyoruz.
+kaho2=pd.Series([78,9,45,656,879,35],index=["k","a","h","r","a","m"])
+print(kaho2) # indexleri sayı olmayacak şekilde de yapabiliriz bu şekilde ki gibi.
+print(kaho2["m"]) # karşılığı olan 35 cıkar. sözlük yapısı gibi düşüm burayı.
+print(kaho2["k":"h"]) # bu şekilde slice işlemi de yapılabilir.
+
+# dk<>> 7:15
+
 
 
 

@@ -349,6 +349,37 @@ print(v==78) # 78 e eşit mi.
 
 
 
+# her ne kadar yukarda matematik işlemleri kuanmış olsakta aslında arka tarafata bu mesela çarpma işemi bir dönüştürme işlemin tabi tutuluyor.
+# işte bu kavrama ufunc okunuşu ise yufank denilir.
+#UFUNC
+import numpy as np
+v2=np.array([2,56,78,456,99,949])
+print(np.subtract(v2, 2)) # subtract fonksiyonu v2 nnin her elemanından 2 çıkardı.
+print(np.add(v2,8)) # her elemana 8 ekler.
+print(np.multiply(v2,3)) # her elemanı 3 ile çarpar.
+print(np.divide(v2,4)) # her elemanı 4 e böler.
+print(np.power(v2,3)) # 3. dereceden kuvvetini aldı. biz bunu ufunc yapmadan da yapabilirdik şöyle: v2**3 olarak
+print(np.mod(v2,5)) # 5 ile bölümünden kalanı yazdır.
+print(np.absolute(np.array([-8])))# [8] mutlak almaya yarar.
+print(np.absolute(np.array([-7,-26]))) #  [ 7 26]
+print(np.log(v2)) # log işlemi yapar.
+# print(np.log3([5,89,23,4,56,78])) # burada 3 tabanında alır.
+print(v2.sum()) # 1640 . toplar
+print(v2.min()) # min olan elemanı verir.
 
+
+
+
+
+
+
+#numpy ile iki bilinmeyenli denklem çözme:
+import numpy as np
+#böyle bir problemimiz olsun çözümü 6. satırdan başlıyor.
+# 5*x0 + x1=12
+# x0 + 3*x1=10
+yut11=np.array([[5,1],[1,3]])
+yut12=np.array([12,10]) #  burda dikkat edersen yukarda iki eleman varken burda da iki eleman olmalı eger gıdıp burda [[12,10]] şeklinde yazarsan bir eleman olur ve yuksardakilerle eşleşemezz o yüzden hata verir.
+print(np.linalg.solve(yut11,yut12))
 
 

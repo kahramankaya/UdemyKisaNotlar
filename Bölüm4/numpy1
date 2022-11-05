@@ -352,38 +352,3 @@ print(v==78) # 78 e eşit mi.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import numpy as np
-# tek boyutlu da fancy işlemi
-yut6=np.array([5,5,21,45,39,78,895,1,571])
-print(yut6)
-# indexleri bir listede toplamak.
-print([yut6[0],yut6[2],yut6[4],yut6[3],yut6[1],yut6[8]]) # [  5  21  39  45   5 571] .. bu çıkar. eger lste çok büyükse tek tek böyle indexleri paranteze yazıp aynı listede toplamak zor olacaktır. bu yüzden aşapıda belirttiğim fancy ile pratik bir yol var.
-rt=[0,2,4,3,1,8]
-print(yut6[rt]) # [  5  21  39  45   5 571] .. bu çıkar. kısa yoldan yoldan yaptık. yukarda ki yol uzun yoldu. işte buna fancy işlemi denilir.
-
-
-
-

@@ -307,6 +307,74 @@ print(bayram)
 
 
 #FANCY işlemi
+# tek boyuttta fancy işlemi
+import numpy as np
+k=np.array([78,99,65,12,4,7,33,89,147,25,489,751])
+index=[1,3,5,6,8]
+print(k[index]) # [ 99  12   7  33 147] işte elemanları k[1],k[3],k[5] bunu demek yerine tüm indexleri bir listeye atıp bu sekilde yazarsak fancy işlemi yapılmış olur.
+print(k[[2,5,4]]) # [65  7  4]
+
+
+
+# iki boyutta fancy işlemi:
+import numpy as np
+k1=np.arange(15).reshape(3,5)
+print(k1)
+print(k1[2,[0,2]]) # [10 12] vırgulden once kı satır numarasını verırken vırgulden sonra kı ıse sutunda 0. ve 2. indextekileri seçer.
+print(k1[2,:]) # [10 11 12 13 14] virgulden onceki satır numarası oluyor virgulden sonra ise sütünu belirtıyor. burda tum sutunu sec demıssın.
+print(k1[0:,[3,4]])
+print(k1[[1,2],[2,3]]) # iki koseli parantez var. bırıncı koselı parantezde vırgulden oncekı sayı satırı dıgerı de satırı verır. ıkıcı koselı parantezde ıse yıne aynı ama bu sefer sutunu verır. ikisini cızınce denk gelen sayılar cıkıyor.
+# yanı şöyle 1. ve 2.satırdan seç. daha  sonra sectıgın bu satırlardan 2. ve 3. sütuna denk gelenlerı seç.
+
+
+
+
+
+
+
+# koşullu işlemler 
+import numpy as  np
+v=np.array([2,3,5,4,78,12,6,31,23,365,452,31103])
+print(v>5) # [False False False False  True  True  True  True  True  True  True  True] her eleman için 5 ten buyuk mu diye sorar.
+print(v<31) # [ True  True  True  True False  True  True False  True False False False]
+print(v>=78) # [False False False False  True False False False False  True  True  True]
+print(v*2) # [    4     6    10     8   156    24    12    62    46   730   904 62206]
+print(v**2) # [        4         9        25        16      6084       144        36    961       529    133225    204304 967396609]
+# şimdi ise true false yerıne hangısını true hangısının false oldugu sayılarını cekecez asagıdakı yontemle
+print(v[v>5]) # [   78    12     6    31    23   365   452 31103] 
+print(v[v!=78])# 78 dısında kı tüm sayıları yazdırdık.
+print(v==78) # 78 e eşit mi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import numpy as np
 # tek boyutlu da fancy işlemi
 yut6=np.array([5,5,21,45,39,78,895,1,571])

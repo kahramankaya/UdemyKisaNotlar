@@ -1,4 +1,4 @@
-pandas numpy e alternatif olarak doğmamıştır. numpy ile yapamadığımız bazı şeyleri pandas ile yapabiliyoruz. bu yüzden hem numpy hemde pandas ı bilmek lazım.
+# pandas numpy e alternatif olarak doğmamıştır. numpy ile yapamadığımız bazı şeyleri pandas ile yapabiliyoruz. bu yüzden hem numpy hemde pandas ı bilmek lazım.
 
 import pandas as pd
 kaho=pd.Series([78,9,5,4,5,6,18,45,7,99,566])
@@ -18,8 +18,125 @@ print(kaho2) # indexleri sayı olmayacak şekilde de yapabiliriz bu şekilde ki 
 print(kaho2["m"]) # karşılığı olan 35 cıkar. sözlük yapısı gibi düşüm burayı.
 print(kaho2["k":"h"]) # bu şekilde slice işlemi de yapılabilir.
 
-# dk<>> 7:15
 
+
+#sözlük üzerinden liste oluşturmak
+import pandas as pd
+j=pd.Series({"fare":"kucuk","inek":"buyuk","keci":"orta"})
+print(j)
+
+# alt saturda concat fonksiyonu birleştirmeye yarar.
+print(pd.concat([j,j])) 
+
+# eleman işlemleri:
+#aşagıdakı ıslemler sayesınde numpyı panasa cevırdık
+import numpy as np
+j2=np.array([3,4,5,8,89,6,5,4,34])
+j3=pd.Series(j2)
+print(j3)
+# j.index indexleri verir.
+print(j.index) # Index(['fare', 'inek', 'keci'], dtype='object')
+print(j.values) # ['kucuk' 'buyuk' 'orta'] sadece değerlere ulaştık bu sayede.
+print(list(j.items())) # [('fare', 'kucuk'), ('inek', 'buyuk'), ('keci', 'orta')] boylece elemanlara eriştik.
+
+
+
+
+
+
+
+
+#sözlük üzerinden liste oluşturmak
+import pandas as pd
+j=pd.Series({"fare":"kucuk","inek":"buyuk","keci":"orta"})
+print(j)
+
+# alt saturda concat fonksiyonu birleştirmeye yarar.
+print(pd.concat([j,j])) 
+
+# eleman işlemleri:
+#aşagıdakı ıslemler sayesınde numpyı panasa cevırdık
+import numpy as np
+j2=np.array([3,4,5,8,89,6,5,4,34])
+j3=pd.Series(j2)
+print(j3)
+# j.index indexleri verir.
+print(j.index) # Index(['fare', 'inek', 'keci'], dtype='object')
+print(j.values) # ['kucuk' 'buyuk' 'orta'] sadece değerlere ulaştık bu sayede.
+print(list(j.items())) # [('fare', 'kucuk'), ('inek', 'buyuk'), ('keci', 'orta')] boylece elemanlara eriştik.
+
+
+
+# eleman sorgulama:
+j2=np.array([3,4,5,8,89,6,5,4,34])
+print(4 in j2)  # bu yapı soyle der: j2 içinde 4 var mı?
+  
+
+import pandas as pd
+j=pd.Series({"fare":"kucuk","inek":"buyuk","keci":"orta"})
+#asagıdakı satırda fancy ile elemanlara eriştik.
+print(j[["fare","keci"]])
+
+
+
+
+
+
+import pandas as pd
+#Dataframe excel gibi düşünebilirsin. veriyi excel formatına dönüştürüyor.
+j4=[5,521,321,5465,8968,43512,13,654,321,564]
+j5=pd.DataFrame(j4)
+print(j5)
+print(pd.DataFrame(j4,columns=["kahraman"])) # columns yazarak değişken atabiliyoruz.
+
+
+import numpy as np
+j6=np.arange(0,20).reshape(5,4)
+j7=pd.DataFrame(j6,columns=["a","b","c","d"])
+print(j7) # sutunların ustune degiskenlerini atadık.
+
+print(j7.head(3)) # ilk 3 tanesini gösterdim.
+print(j7.tail(2))
+print(j7.columns) # Index(['a', 'b', 'c', 'd'], dtype='object') burada sütunların üstündeki ni çağırdık.
+
+
+j7.columns=["q","w","r","t"] # böylece üstünde kilerin isimlerideğiştirebildik
+print(j7)
+print(j7.axes) # [RangeIndex(start=0, stop=5, step=1), Index(['q', 'w', 'r', 't'], dtype='object')]
+print(type(j7)) # <class 'pandas.core.frame.DataFrame'>
+print(j7.shape) # (5, 4)
+print(j7.values) # liste seklınde array cıktı. pekı j7.array type nedir asagıda kı satırda
+print(type(j7.values)) # <class 'numpy.ndarray'> gordugun gıbı array oldugu ıcın pandas degıl numpy dedı.
+
+
+
+
+
+
+# sozluk uzerınden DataFrame oluşturma.
+import numpy as np
+v1=np.random.randint(5,size=3)
+v2=np.random.randint(6,size=3)
+v3=np.random.randint(10,size=3)
+
+
+sozluk={"bayram":v1,
+        "kahraman":v2,
+        "onurhan":v3}
+pd=pd.DataFrame(sozluk)
+print(pd)
+print(pd[0:2])
+print(pd.ndim)
+print(pd.shape)
+print(pd.size)
+
+
+# asagıda kı satırlarda gorulecegı uzere bu sekılde ındex kısmını ıstedıgımız gıbı degıstırdık.
+print(pd.index)
+pd.index=[2,5,8]
+print(pd)
+
+# 4:50
 
 
 

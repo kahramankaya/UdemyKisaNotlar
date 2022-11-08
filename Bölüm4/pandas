@@ -136,7 +136,58 @@ print(pd.index)
 pd.index=[2,5,8]
 print(pd)
 
-# 4:50
+
+
+
+
+
+# SATIR VE SÜTUN BAZINDA SİLME:
+import pandas as pd
+import numpy as np
+v1=np.random.randint(5,size=3)
+v2=np.random.randint(6,size=3)
+v3=np.random.randint(10,size=3)
+sozluk={"bayram":v1,
+        "kahraman":v2,
+        "onurhan":v3}
+
+q=pd.DataFrame(sozluk, index=["a","b","c"])
+print(q)
+print(q.drop("kahraman",axis=1)) # sütun bazında kahramanın sütunu sildi goruldugu uzere.
+print(q.drop("b",axis=0)) # axis sıfır ise satırdan silmeye başalr. axis 1 ise sütun olarak silme işlemi yapar. 
+print(q.drop("c",axis=0))
+#AMA YUKARDA YAPTIĞIMIZ KALICI SİLME İŞLEMLERİ DEĞİL. KALICI YAPMAK İSTİYORSAK İNSPLACE KULLANILIR.
+print(q)
+# print(q.drop("a",axis=0,inplace=True))
+print(q) # görüldüğü üzere kalıcı silme işlemi yaptık. yukardaki satırla.
+
+#diyelim ki aynı anda bır den cok ındexı sılmek ıstıyoruz. o zman fanc kullanmalıyız.
+l=["bayram","onurhan"]
+print(q.drop(l,axis=1)) # fancy ile silme işlemi yaptırdık. boylece coklu sutun slme ya da satır sılme işlemi yapılabılır.
+print(q)
+
+
+#değişken için sorgulama işlemleri:
+# "?" in q dediğimiz zaman ? q içinde var mı diye somuş oluyoruz.
+print("bayram" in q) # oldugu ıcın True dedi
+
+kğ=["kahraman","bayram","onurhan","kaho"]
+for m in kğ:
+    print(m in q)
+
+
+#╚değişken eklem dırek boyle olur. bakar eger o degısken yoksa dırek ekler.
+q["mert"]=[4,5,6]
+print(q)
+q["kahraman"]=[1,2,3] #{ var olan değişkeni değişterebilirsin bu sayede.}
+print(q)
+
+#değişkene işlemler yapma:
+khj=q["kahraman"]*q["onurhan"]
+print(khj)
+
+
+
 
 
 

@@ -191,3 +191,33 @@ print(khj)
 
 
 
+
+
+# loc and iloc:
+import numpy as np
+import pandas as pd
+t1=np.random.randint(0,50,size=5)
+t2=np.random.randint(100,200,size=5)
+t3=np.random.randint(200,1000,size=(5))
+t6=np.random.randint(2000,120000,size=(5))
+t5=[t1,t2,t3,t6]
+t4=pd.DataFrame(t5,columns=["a","b","c","d","e"],index=["x","y","z","t"])
+print(t4)
+# loc and iloc:
+# loc: istedıgımız ındexı oraya kadar goturur.ama iloc ise sondan bır eksık. mesela her ıkısnıne [0:3] yazdım locta 0,1,2,3, cıkarken loc ta ıse 0,1,2 cıkar.
+# loc veri yapında ki verdiğin index isimlerine göre giderken iloc ise ona bakmadan direk int ndex kullanır. yani sen indexe ne dersen de o kendi index sayacaına göre gidecektir.
+print(t4.loc["x":,"c"])
+print(t4.iloc[0:,2])
+# eger ki iloc ile degısken ısmını yazarak yazdırmak ıstıyorsan alt satırıda kı yontemı kullan.
+print(t4.iloc[0:]["c"])
+print(t4.loc["x":"t"])
+print(t4.iloc[0:3]) # 65 ve 66. satırlar aynı sonucu verir.
+print(t4.loc["x":"z","a":"c"])
+print(t4.iloc[0:2,0:4])
+
+
+
+
+
+
+

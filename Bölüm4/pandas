@@ -357,4 +357,35 @@ print(pd.concat([p7,p8],join="inner",ignore_index=True))  # gorüldüğü üzere
 
 
 
+import numpy as np
+import pandas as pd
+h1={
+    "kişiler":["kahraman","bayram","onurhan","ali"],
+    "Alan":["veribilimi","DijitalPazarlama","yazılım","pazarlama"]
+    }
 
+h2={
+    "kişiler":["kahraman","bayram","onurhan","ali"],
+    "işeGiris":[2024,2022,2023,2025]
+    }
+
+h3=pd.DataFrame(h1)
+h4=pd.DataFrame(h2)
+# h5=pd.concat([h3,h4]) # bunu yazdırısak cok sacma bıcımde bırlesır.  cunku cogu sey oratk degıl.
+# print(pd.merge(h3,h4)) # merge fonksiyonu kendisi  her ıkıınde ortak olan degıskenı anlayıp boylece bırlestırm yapar.
+#     kişiler              Alan  işeGiris
+# 0  kahraman        veribilimi      2024
+# 1    bayram  DijitalPazarlama      2022
+# 2   onurhan           yazılım      2023
+# 3       ali         pazarlama      2025
+
+# diyelim ki biz ek olarak hangısının ortak alınacagını belirtmek istiyoruz  oz aman asagıda su sekılde belırtırsın.
+h7=pd.merge(h3,h4,on="kişiler")
+print(h7)
+
+
+h6=pd.DataFrame({"Alan":["veribilimi","DijitalPazarlama","yazılım","pazarlama","psikoloji"], "Mudur":["kaho","mert","ilho","haso","merve"]})
+print(h6)
+
+print(pd.merge(h7,h6))
+# 137.vıdeo ve ustude anlamadıgım bır yer var.

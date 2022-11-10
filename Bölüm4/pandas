@@ -356,7 +356,7 @@ print(pd.concat([p7,p8],join="inner",ignore_index=True))  # gorüldüğü üzere
 
 
 
-
+#merge()
 import numpy as np
 import pandas as pd
 h1={
@@ -379,13 +379,24 @@ h4=pd.DataFrame(h2)
 # 2   onurhan           yazılım      2023
 # 3       ali         pazarlama      2025
 
-# diyelim ki biz ek olarak hangısının ortak alınacagını belirtmek istiyoruz  oz aman asagıda su sekılde belırtırsın.
-h7=pd.merge(h3,h4,on="kişiler")
-print(h7)
 
 
-h6=pd.DataFrame({"Alan":["veribilimi","DijitalPazarlama","yazılım","pazarlama","psikoloji"], "Mudur":["kaho","mert","ilho","haso","merve"]})
-print(h6)
 
-print(pd.merge(h7,h6))
-# 137.vıdeo ve ustude anlamadıgım bır yer var.
+
+
+import numpy as np
+import pandas as pd
+l1={
+    "kişiler":["kahraman","kahraman","bayram","onurhan","ali"],
+    "Alan":["veribilimi","DijitalPazarlama","DijitalPazarlama","yazılım","pazarlama"]
+    }
+
+l2={
+    "Alan":["veribilimi","DijitalPazarlama","DijitalPazarlama","yazılım"],
+    "Dal":["mat","ekonomi","finans","kod"]
+    }
+
+l3=pd.DataFrame(l1)
+l4=pd.DataFrame(l2)
+# zaten merge fonksiyonu hangisi üzerinde birleşme yapacağını biliyor ama sen yine kendi isteğinle seçmek istiyorsan o zaman print(pd.merge(h3,h4,on="Alan)) on ile belirtirsin.
+print(pd.merge(l3,l4))

@@ -532,3 +532,95 @@ print(r1.groupby("method")["mass"].describe()) # tüm hepsinin özelliklerini ve
 # Radial Velocity                1.260  3.0000  25.00  
 # Transit                        1.470  1.4700   1.47  
 # Transit Timing Variations        NaN     NaN    NaN 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import seaborn as sns
+import numpy as np
+import pandas as pd
+
+okul={
+      "Grup":["A","B","C","A","B","C"],
+      "Not1":[85,46,45,78,96,23],
+      "Not2":[77,99,71,44,14,72]
+      }
+ty1=pd.DataFrame(okul)
+print(ty1)
+print(ty1.groupby("Grup")["Not1"].sum())
+print(ty1.groupby("Grup")["Not2"].sum()) # topluyor.
+# Grup
+# A    121
+# B    113
+# C    143
+
+print(ty1.groupby("Grup")["Not2"].min()) # Not2 için  A,B,C değerlerinin hangisi daha küçük ise onu alıyor.
+# Grup
+# A    44
+# B    14
+# C    71
+
+print(ty1.groupby("Grup").max()) # burada grup belli ama degısken vermeyınce kendısı dırek her ıkı degısken ıcın max degerlerı yazıyor.
+# Grup            
+# A       85    77
+# B       96    99
+# C       45    72
+
+
+
+#şimdi yukarıda max min gibi fonksiyonları tek tek çağırmak yerine "aggregate" kullanacagız asagıda
+print(ty1)
+print(ty1.groupby("Grup").aggregate([max, np.median,min]))
+#       max median min  max median min
+# Grup                                
+# A      85   81.5  78   77   60.5  44
+# B      96   71.0  46   99   56.5  14
+# C      45   34.0  23   72   71.5  71
+
+print(ty1.groupby("Grup").aggregate({"Not1": max, "Not2":min})) # farketmıssen yukarda lıste burda dict kullandık
+#       Not1  Not2
+# Grup            
+# A       85    44
+# B       96    14
+# C       45    71
+
+
+
+#filter
+# bu kısımda pandasın yapamadıgı bır fıltreleme ıslemı yapmak ıstedıgımı zman verı onumuze geldıgı zaman bu verıye kendı ıstedgımız bır fonksıyon sayesınde fıltreleme işlemi yaptıracagız.
+def SahsiFiltrem(x):
+    return x["Not1"].std()>12 # standart sapması 12 den buyuk olanları dondur dedık Not1 değişkeni için sadece.
+print(ty1.groupby("Grup").filter(SahsiFiltrem))
+#   Grup  Not1  Not2
+# 1    B    46    99
+# 2    C    45    71
+# 4    B    96    14
+# 5    C    23    72
+
+print(ty1.groupby("Grup").std())
+#            Not1       Not2
+# Grup                      
+# A      4.949747  23.334524
+# B     35.355339  60.104076
+# C     15.556349   0.707107
+
+
+
+
+
+

@@ -706,3 +706,88 @@ print(lş5.groupby("grup").apply(np.sum))
 
 
 
+
+
+
+
+
+
+#pivot: groupby iki boyutlu işlemler için tablo yapmada kullanılırken pivot ise çoklu boyutlarda işimizi kolaylaştırır.   
+import numpy as np
+import pandas as pd
+import seaborn as sns
+titanic=sns.load_dataset("titanic")
+
+print(titanic.groupby("sex")["survived"].mean()) # sex cinsiyet demek ve biz burda cinsiyete grupladık. böylece erkek ve kadınların titanik olayında yaşama olasılıklarını bulduk.
+# sex
+# female    0.742038
+# male      0.188908
+# Name: survived, dtype: float64
+
+print(titanic.groupby("sex")[["survived"]].mean()) # survive kısmını yukardan farklı olarak iki tane köşeli parantez kullanırsak o zman output kısmı daha belirgin bir şekilde ortaya çıkar.
+# sex             
+# female  0.742038
+# male    0.188908
+
+print(titanic.groupby(["sex","class"])["survived"].mean()) # burada iki değişkene göre grupladık ve aşağı doğru bir ayırma yaptı. biz bunu daha düzgün kullanmak için unstack() ullanacaız aşağağıda.
+#output kısmı şunu söylüyor: cinsiyete göre birinci,ikinci,üçüncü sınıfta ki bayan ve erkeklerin yaşama oranlarını vermiş. mesela birinci sınıfta kadınların hayatta kalma oranı 0.968085 bu kadardır.
+
+#         survived
+# sex             
+# female  0.742038
+# male    0.188908
+# sex     class 
+# female  First     0.968085
+#         Second    0.921053
+#         Third     0.500000
+# male    First     0.368852
+#         Second    0.157407
+#         Third     0.135447
+# Name: survived, dtype: float64
+
+print(titanic.groupby(["sex","class"])[["survived"]].mean().unstack()) # bu şekilde yukardakinden aha düzgün bir yapı çıktı unstack sayesinde.
+#         survived                    
+# class      First    Second     Third
+# sex                                 
+# female  0.968085  0.921053  0.500000
+# male    0.368852  0.157407  0.135447
+
+print(titanic.groupby(["sex","class"])[["survived"]].aggregate("mean").unstack()) # yukarda ki satır bu şekilde de aynı sonucu verir.
+#         survived                    
+# class      First    Second     Third
+# sex                                 
+# female  0.968085  0.921053  0.500000
+# male    0.368852  0.157407  0.135447
+
+
+
+# şimdi yukarda groupby ile yapılan pivot ile basit bir şekilde yapacağız.
+print(titanic.pivot_table("survived",index="sex", columns="class")) # 
+# class      First    Second     Third
+# sex                                 
+# female  0.968085  0.921053  0.500000
+# male    0.368852  0.157407  0.135447
+
+
+print(titanic.age)
+# 0      22.0
+# 1      38.0
+# 2      26.0
+# 3      35.0
+# 4      35.0
+#        ... 
+# 886    27.0
+# 887    19.0
+# 888     NaN
+# 889    26.0
+# 890    32.0
+# Name: age, Length: 891, dtype: float64 # age değişkeni 891 kişinin yaşını barındıryormuş.
+
+print(titanic.age.head())
+
+
+
+
+
+
+

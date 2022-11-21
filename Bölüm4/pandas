@@ -624,3 +624,41 @@ print(ty1.groupby("Grup").std())
 
 
 
+
+
+
+#transform
+import numpy as np
+import pandas as pd
+# import seaborn as sns
+m={
+   "grup":["a","b","c","a","b","c"],
+   "not1":[12,45,78,25,69,48],
+   "not2":[45,61,78,64,532,33]
+   }
+lş1=pd.DataFrame(m)
+print(lş1)
+
+#transform işlemleri: istediğimiz işlemi değişkenlere uygular. mesela lş1*4 desem bu da bir dönüştürme işlemidir. ama kendimizin istediği bir şey yaratıp uygulamak istersek o zaman transfor kullanıyoruz.
+lş2=lş1.iloc[:,1:3] # bunu yapmamızın nedeni hata vermesini engellemektir. çünkü bunu yapmadan aşağı kısmı çalıştırırsak grup sütunu int olmayıp str olduğu için hata verdi.
+lş3=lş2.transform(lambda m :  (m-1/m)) # her m değişkeninden 1 çıkar ve kendisine böl daha sonra yazdır.
+print(lş3)
+#         not1        not2
+# 0  11.916667   44.977778
+# 1  44.977778   60.983607
+# 2  77.987179   77.987179
+# 3  24.960000   63.984375
+# 4  68.985507  531.998120
+# 5  47.979167   32.969697
+
+
+
+
+
+
+
+
+
+
+
+

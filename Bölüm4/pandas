@@ -630,7 +630,7 @@ print(ty1.groupby("Grup").std())
 #transform
 import numpy as np
 import pandas as pd
-# import seaborn as sns
+import seaborn as sns
 m={
    "grup":["a","b","c","a","b","c"],
    "not1":[12,45,78,25,69,48],
@@ -656,6 +656,50 @@ print(lş3)
 
 
 
+
+
+
+#apply: bu da filter ve transform gibi her değişken üzerinde oynama özelliği var.
+import numpy as np
+import pandas as pd
+# import seaborn as sns
+m={
+   "not1":[12,45,78,25,69,48],
+   "not2":[45,61,78,64,532,33]
+   }
+ 
+lş4=pd.DataFrame(m)
+print(lş4.apply(np.sum))
+# not1    277
+# not2    813
+# dtype: int64
+
+print(lş4.apply(np.mean))
+# not1     46.166667
+# not2    135.500000
+# dtype: float64
+
+
+n={
+   "grup":["a","b","c","a","b","c"],
+   "not1":[12,45,78,25,69,48],
+   "not2":[45,61,78,64,532,33]
+   }
+
+lş5=pd.DataFrame(n)
+print(lş5.apply(np.sum))
+# grup    abcabc
+# not1       277
+# not2       813
+# dtype: object
+
+
+print(lş5.groupby("grup").apply(np.sum))
+#      grup  not1  not2
+# grup                 
+# a      aa    37   109
+# b      bb   114   593
+# c      cc   126   111
 
 
 

@@ -71,3 +71,134 @@ print(df.dtypes) # sadece değişkenlere ulaştık bu sayede.
 # distance          float64
 # year                int64
 # dtype: object
+
+
+
+
+import seaborn as sns
+planets=sns.load_dataset("planets")
+print(planets)
+#                method  number  orbital_period   mass  distance  year
+# 0     Radial Velocity       1      269.300000   7.10     77.40  2006
+# 1     Radial Velocity       1      874.774000   2.21     56.95  2008
+# 2     Radial Velocity       1      763.000000   2.60     19.84  2011
+# 3     Radial Velocity       1      326.030000  19.40    110.62  2007
+# 4     Radial Velocity       1      516.220000  10.50    119.47  2009
+# ...               ...     ...             ...    ...       ...   ...
+# 1030          Transit       1        3.941507    NaN    172.00  2006
+# 1031          Transit       1        2.615864    NaN    148.00  2007
+# 1032          Transit       1        3.191524    NaN    174.00  2007
+# 1033          Transit       1        4.125083    NaN    293.00  2008
+# 1034          Transit       1        4.187757    NaN    260.00  2008
+
+# [1035 rows x 6 columns]
+
+
+print(planets.head(2))
+#             method  number  orbital_period  mass  distance  year
+# 0  Radial Velocity       1         269.300  7.10     77.40  2006
+# 1  Radial Velocity       1         874.774  2.21     56.95  2008
+
+df=planets.copy() # bu şekilde ana yapıyı değiştirmeden kopyalama işlemi ile istediğimiz işlemi yaptırabildik.
+print(df.head())
+# ​#             method  number  orbital_period   mass  distance  year
+# 0  Radial Velocity       1         269.300   7.10     77.40  2006
+# 1  Radial Velocity       1         874.774   2.21     56.95  2008
+# 2  Radial Velocity       1         763.000   2.60     19.84  2011
+# 3  Radial Velocity       1         326.030  19.40    110.62  2007
+# 4  Radial Velocity       1         516.220  10.50    119.47  2009
+
+print(df.info) # değişken hakkında bilgi sahibi olduk.
+# <bound method DataFrame.info of                method  number  orbital_period   mass  distance  year
+# 0     Radial Velocity       1      269.300000   7.10     77.40  2006
+# 1     Radial Velocity       1      874.774000   2.21     56.95  2008
+# 2     Radial Velocity       1      763.000000   2.60     19.84  2011
+# 3     Radial Velocity       1      326.030000  19.40    110.62  2007
+# 4     Radial Velocity       1      516.220000  10.50    119.47  2009
+# ...               ...     ...             ...    ...       ...   ...
+# 1030          Transit       1        3.941507    NaN    172.00  2006
+# 1031          Transit       1        2.615864    NaN    148.00  2007
+# 1032          Transit       1        3.191524    NaN    174.00  2007
+# 1033          Transit       1        4.125083    NaN    293.00  2008
+# 1034          Transit       1        4.187757    NaN    260.00  2008
+
+# [1035 rows x 6 columns]>
+
+print(df.info) # değişken hakkında bilgi sahibi olduk.
+# <bound method DataFrame.info of                method  number  orbital_period   mass  distance  year
+# 0     Radial Velocity       1      269.300000   7.10     77.40  2006
+# 1     Radial Velocity       1      874.774000   2.21     56.95  2008
+# 2     Radial Velocity       1      763.000000   2.60     19.84  2011
+# 3     Radial Velocity       1      326.030000  19.40    110.62  2007
+# 4     Radial Velocity       1      516.220000  10.50    119.47  2009
+# ...               ...     ...             ...    ...       ...   ...
+# 1030          Transit       1        3.941507    NaN    172.00  2006
+# 1031          Transit       1        2.615864    NaN    148.00  2007
+# 1032          Transit       1        3.191524    NaN    174.00  2007
+# 1033          Transit       1        4.125083    NaN    293.00  2008
+# 1034          Transit       1        4.187757    NaN    260.00  2008
+
+# [1035 rows x 6 columns]>
+
+print(df.dtypes) # sadece değişkenlere ulaştık bu sayede.
+# method             object
+# number              int64
+# orbital_period    float64
+# mass              float64
+# distance          float64
+# year                int64
+# dtype: object
+
+
+
+print(df.shape)
+# (1035, 6)
+print(df.columns)
+# Index(['method', 'number', 'orbital_period', 'mass', 'distance', 'year'], dtype='object')
+print(df.describe()) # bunun sayesinde bütün sayısal değerler ulaştık. gördüğün gibi hepsi sayısal.
+#             number  orbital_period        mass     distance         year
+# count  1035.000000      992.000000  513.000000   808.000000  1035.000000
+# mean      1.785507     2002.917596    2.638161   264.069282  2009.070531
+# std       1.240976    26014.728304    3.818617   733.116493     3.972567
+# min       1.000000        0.090706    0.003600     1.350000  1989.000000
+# 25%       1.000000        5.442540    0.229000    32.560000  2007.000000
+# 50%       1.000000       39.979500    1.260000    55.250000  2010.000000
+# 75%       2.000000      526.005000    3.040000   178.500000  2012.000000
+# max       7.000000   730000.000000   25.000000  8500.000000  2014.000000
+
+print(df.describe().T) # sütunları ve satırları yer değiştirir.
+#                  count         mean           std          min         25%  \
+# number          1035.0     1.785507      1.240976     1.000000     1.00000   
+# orbital_period   992.0  2002.917596  26014.728304     0.090706     5.44254   
+# mass             513.0     2.638161      3.818617     0.003600     0.22900   
+# distance         808.0   264.069282    733.116493     1.350000    32.56000   
+# year            1035.0  2009.070531      3.972567  1989.000000  2007.00000   
+
+#                       50%       75%       max  
+# number             1.0000     2.000       7.0  
+# orbital_period    39.9795   526.005  730000.0  
+# mass               1.2600     3.040      25.0  
+# distance          55.2500   178.500    8500.0  
+# year            2010.0000  2012.000    2014.0  
+
+print(df.describe(include="all").T) # böylece sadece sayısal değil de tümüne ulaştık.
+
+#                  count unique              top freq         mean  \
+# method            1035     10  Radial Velocity  553          NaN   
+# number          1035.0    NaN              NaN  NaN     1.785507   
+# orbital_period   992.0    NaN              NaN  NaN  2002.917596   
+# mass             513.0    NaN              NaN  NaN     2.638161   
+# distance         808.0    NaN              NaN  NaN   264.069282   
+# year            1035.0    NaN              NaN  NaN  2009.070531   
+
+#                          std       min      25%      50%      75%       max  
+# method                   NaN       NaN      NaN      NaN      NaN       NaN  
+# number              1.240976       1.0      1.0      1.0      2.0       7.0  
+# orbital_period  26014.728304  0.090706  5.44254  39.9795  526.005  730000.0  
+# mass                3.818617    0.0036    0.229     1.26     3.04      25.0  
+# distance          733.116493      1.35    32.56    55.25    178.5    8500.0  
+# year                3.972567    1989.0   2007.0   2010.0   2012.0    2014.0 
+
+
+
+# 154. video dayım.

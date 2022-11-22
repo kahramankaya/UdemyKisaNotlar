@@ -798,7 +798,7 @@ print(titanic.age.head())
 
 
 
-#github'tan veriyi çekmek ve okumak
+# github tan bir veri indirmek istersen mustafa vahit keskin 145. videosunu izle udemy(50 saatte..) 
 import numpy as np
 import pandas as pd
 # github tan bir veri indirmek istersen mustafa vahit keskin 145. videosunu izle udemy(50 saatte..) 
@@ -817,6 +817,9 @@ print(t)
 # 242       17.82  1.75    Male     No   Sat  Dinner     2
 # 243       18.78  3.00  Female     No  Thur  Dinner     2
 
+# [244 rows x 7 columns]
+
+
 print(t.head(3))
 
 #    total_bill   tip     sex smoker  day    time  size
@@ -825,5 +828,72 @@ print(t.head(3))
 # 2       21.01  3.50    Male     No  Sun  Dinner     3
 
 
-#p=pd.read_xlsx("ornekx_xlsx")
-#print(p)
+
+p=pd.read_csv("ornekcsv.csv") # aşağıda bu kodun daha düzenli olması için sep parametresini kullandık. böylece veri daha düzgün hale geldi.
+print(p)
+#        a;b;c
+# 0    78;12;1
+# 1    78;12;2
+# 2   78;324;3
+# 3      7;2;4
+# 4    88;23;5
+# 5       6;2;
+# 6    56;11;6
+# 7     7;12;7
+# 8    56;21;7
+# 9    346;2;8
+# 10     5;1;8
+# 11  456;21;8
+# 12   3;12;88
+
+p=pd.read_csv("ornekcsv.csv" , sep=";")
+print(p)
+#       a    b     c
+# 0    78   12   1.0
+# 1    78   12   2.0
+# 2    78  324   3.0
+# 3     7    2   4.0
+# 4    88   23   5.0
+# 5     6    2   NaN
+# 6    56   11   6.0
+# 7     7   12   7.0
+# 8    56   21   7.0
+# 9   346    2   8.0
+# 10    5    1   8.0
+# 11  456   21   8.0
+# 12    3   12  88.0
+
+
+p2=pd.read_excel("ornekx.xlsx")
+print(p2)
+#       a    b     c
+# 0    78   12   1.0
+# 1    78   12   2.0
+# 2    78  324   3.0
+# 3     7    2   4.0
+# 4    88   23   5.0
+# 5     6    2   NaN
+# 6    56   11   6.0
+# 7     7   12   7.0
+# 8    56   21   7.0
+# 9   346    2   8.0
+# 10    5    1   8.0
+# 11  456   21   8.0
+# 12    3   12  88.0
+
+p2.columns=["k","l","m"] # bu sayede p2 verisinin değişkenlerini değiştirdik.
+print(p2)
+#       k    l     m
+# 0    78   12   1.0
+# 1    78   12   2.0
+# 2    78  324   3.0
+# 3     7    2   4.0
+# 4    88   23   5.0
+# 5     6    2   NaN
+# 6    56   11   6.0
+# 7     7   12   7.0
+# 8    56   21   7.0
+# 9   346    2   8.0
+# 10    5    1   8.0
+# 11  456   21   8.0
+# 12    3   12  88.0

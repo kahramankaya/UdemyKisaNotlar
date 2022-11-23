@@ -327,5 +327,115 @@ print(df3.method.value_counts().plot.barh()) # bar grafiği çıktı.
 
 
 
+import seaborn as sns
+planets=sns.load_dataset("planets")
+df2=planets.copy()
+df4=df2.select_dtypes(include=["float64","int64"])
+print(df4)
+#       number  orbital_period   mass  distance  year
+# 0          1      269.300000   7.10     77.40  2006
+# 1          1      874.774000   2.21     56.95  2008
+# 2          1      763.000000   2.60     19.84  2011
+# 3          1      326.030000  19.40    110.62  2007
+# 4          1      516.220000  10.50    119.47  2009
+# ...      ...             ...    ...       ...   ...
+# 1030       1        3.941507    NaN    172.00  2006
+# 1031       1        2.615864    NaN    148.00  2007
+# 1032       1        3.191524    NaN    174.00  2007
+# 1033       1        4.125083    NaN    293.00  2008
+# 1034       1        4.187757    NaN    260.00  2008
+
+# [1035 rows x 5 columns]
+
+print(df4["distance"].describe().T) # sadece distance değişkeni için gösterdik.
+# count     808.000000
+# mean      264.069282
+# std       733.116493
+# min         1.350000
+# 25%        32.560000
+# 50%        55.250000
+# 75%       178.500000
+# max      8500.000000
+# Name: distance, dtype: float64
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import seaborn as sns
+df=sns.load_dataset("diamonds")
+print(df.head())
+#    carat      cut color clarity  depth  table  price     x     y     z
+# 0   0.23    Ideal     E     SI2   61.5   55.0    326  3.95  3.98  2.43
+# 1   0.21  Premium     E     SI1   59.8   61.0    326  3.89  3.84  2.31
+# 2   0.23     Good     E     VS1   56.9   65.0    327  4.05  4.07  2.31
+# 3   0.29  Premium     I     VS2   62.4   58.0    334  4.20  4.23  2.63
+# 4   0.31     Good     J     SI2   63.3   58.0    335  4.34  4.35  2.75
+
+print(df.info())
+#veriyi okuyalım aşağıdan: dataframe imiş. daha sonra 10 tane değişkeni varmış. daha sonra 3 tane kategorik değişken iken 7(6 tane float64 + 1 tane int64) tanesi de sayısal değişken imiş
+# <class 'pandas.core.frame.DataFrame'>
+# RangeIndex: 53940 entries, 0 to 53939
+# Data columns (total 10 columns):
+#  #   Column   Non-Null Count  Dtype   
+# ---  ------   --------------  -----   
+#  0   carat    53940 non-null  float64 
+#  1   cut      53940 non-null  category
+#  2   color    53940 non-null  category
+#  3   clarity  53940 non-null  category
+#  4   depth    53940 non-null  float64 
+#  5   table    53940 non-null  float64 
+#  6   price    53940 non-null  int64   
+#  7   x        53940 non-null  float64 
+#  8   y        53940 non-null  float64 
+#  9   z        53940 non-null  float64 
+# dtypes: category(3), float64(6), int64(1)
+# memory usage: 3.0 MB
+
+print(df.describe().T)
+#          count         mean          std    min     25%      50%      75%  
+# carat  53940.0     0.797940     0.474011    0.2    0.40     0.70     1.04   
+# depth  53940.0    61.749405     1.432621   43.0   61.00    61.80    62.50   
+# table  53940.0    57.457184     2.234491   43.0   56.00    57.00    59.00   
+# price  53940.0  3932.799722  3989.439738  326.0  950.00  2401.00  5324.25   
+# x      53940.0     5.731157     1.121761    0.0    4.71     5.70     6.54   
+# y      53940.0     5.734526     1.142135    0.0    4.72     5.71     6.54   
+# z      53940.0     3.538734     0.705699    0.0    2.91     3.53     4.04   
+
+# YUKARDAKİNİN SAĞA DOĞRU DEVAMI
+#             max  
+# carat      5.01  
+# depth     79.00  
+# table     95.00  
+# price  18823.00  
+# x         10.74  
+# y         58.90  
+# z         31.80  
+
+
+print(df["cut"].value_counts())
+# Ideal        21551
+# Premium      13791
+# Very Good    12082
+# Good          4906
+# Fair          1610
+# Name: cut, dtype: int64
+
+print(df["cut"].value_counts().count())
+# 5
+
+
+
+
+# 157. video 7. dk
 
 

@@ -267,6 +267,63 @@ print(df1.isnull().sum())
 
 
 
+import seaborn as sns
+planets=sns.load_dataset("planets")
+df2=planets.copy()
+#kategorik değişkenleri seçme ve özetleme işlemleri aşağıda ki kod.
+df3=df2.select_dtypes(include=["object"]) # istediğimiz tipe göre değişken seçmeye yarar.
+print(df3.tail(20)) # tek bir tane kategorik değişken olduğu için bu çıktı.
+#        method
+# 1015  Transit
+# 1016  Transit
+# 1017  Transit
+# 1018  Transit
+# 1019  Transit
+# 1020  Transit
+# 1021  Transit
+# 1022  Transit
+# 1023  Transit
+# 1024  Transit
+# 1025  Transit
+# 1026  Transit
+# 1027  Imaging
+# 1028  Transit
+# 1029  Imaging
+# 1030  Transit
+# 1031  Transit
+# 1032  Transit
+# 1033  Transit
+# 1034  Transit
+
+print(df3.method.unique()) # böylece method kategorik değikeninde bulunan tüm sınıfları yazdırdık.
+# ['Radial Velocity' 'Imaging' 'Eclipse Timing Variations' 'Transit'
+#  'Astrometry' 'Transit Timing Variations' 'Orbital Brightness Modulation'
+#  'Microlensing' 'Pulsar Timing' 'Pulsation Timing Variations']
+
+# yukarıda ki sınıflar çok fazla sayamayız. bunların sayısını öğrenmek için yani kategorik değişken sınıfının frekansını öğrenmek için aşağıda ki kodu yazdır.
+print(df3.method.value_counts().count())
+# 10 çıkar. 10 tane varmış demek ki.
+print(df3.method.value_counts())
+# Radial Velocity                  553
+# Transit                          397
+# Imaging                           38
+# Microlensing                      23
+# Eclipse Timing Variations          9
+# Pulsar Timing                      5
+# Transit Timing Variations          4
+# Orbital Brightness Modulation      3
+# Astrometry                         2
+# Pulsation Timing Variations        1
+# Name: method, dtype: int64
+
+
+
+#önemli: yukarıda ki değerleri grafiğe aktardık aşağıda ki kod sayesinde.
+# aşağıda ki kod sayesinde gerçek bir grafik oluştu burda gözükmüyor tabii.
+print(df3.method.value_counts().plot.barh()) # bar grafiği çıktı.
+
+
+
 
 
 

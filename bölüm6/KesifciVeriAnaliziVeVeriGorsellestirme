@@ -201,4 +201,74 @@ print(df.describe(include="all").T) # böylece sadece sayısal değil de tümün
 
 
 
-# 154. video dayım.
+
+
+
+
+
+
+
+
+
+
+
+
+import seaborn as sns
+planets=sns.load_dataset("planets")
+df1=planets.copy()
+print(df1.isnull().values.any()) # df1 de herhangi bir değerde hata var mı dedik? var dedi output.
+# True
+
+# her değişkende kaç tane eksik var demek için aşağıda ki kodu çalıştırıyoruz.
+print(df1.isnull().sum()) # output değişkenlerde mesela method değişkeninde eksik yok dedi ama distance de 227 tane var ded,
+# method              0
+# number              0
+# orbital_period     43
+# mass              522
+# distance          227
+# year                0
+# dtype: int64
+
+
+# biz her değişkende eksik değer yerlerini 0 layabiliriz. kod aşağıda. df1.["değişkenin_ismi"].fillna(0,inplace=True)
+df1["distance"].fillna(0,inplace=True) # böylece distance değişkeninde eksik değerleri yok ettik.
+print(df1.isnull().sum())
+# None
+# method              0
+# number              0
+# orbital_period     43
+# mass              522
+# distance            0
+# year                0
+# dtype: int64
+
+
+df1["distance"].fillna(df1.mass.mean(),inplace=True) # böyle yapınca distance değişkeninin eksik değerinin yerine onun ortalamasını yazdırdık.
+print(df1.isnull().sum())
+
+
+# bütün değerler için ortalamayı yazdırmak istersek aşğıdaki kodu yaz.
+df1.fillna(df1.mean() , inplace=True)
+print(df1.isnull().sum())
+# method            0
+# number            0
+# orbital_period    0
+# mass              0
+# distance          0
+# year              0
+# dtype: int64
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -422,7 +422,7 @@ print(df.describe().T)
 # z         31.80  
 
 
-print(df["cut"].value_counts())
+print(df["cut"].value_counts()) # cut değişkeninin sınıflarına ulaştık bu sayede.
 # Ideal        21551
 # Premium      13791
 # Very Good    12082
@@ -430,12 +430,86 @@ print(df["cut"].value_counts())
 # Fair          1610
 # Name: cut, dtype: int64
 
-print(df["cut"].value_counts().count())
+print(df["cut"].value_counts().count()) # cut değişkeninin sınıf sayısını verdi bize.
 # 5
 
 
 
 
-# 157. video 7. dk
+
+
+
+
+
+
+# ordinal tanımlama
+
+import seaborn as sns
+diamonds=sns.load_dataset("diamonds")
+from pandas.api.types import CategoricalDtype
+print(diamonds.head())
+print(diamonds.info())
+print(diamonds["cut"].head())
+
+diamonds.cut=diamonds.cut.astype(CategoricalDtype(ordered=True))
+print(diamonds.cut)
+# 0            Ideal
+# 1          Premium
+# 2             Good
+# 3          Premium
+# 4             Good
+#            ...    
+# 53935        Ideal
+# 53936         Good
+# 53937    Very Good
+# 53938      Premium
+# 53939        Ideal
+# Name: cut, Length: 53940, dtype: category
+# Categories (5, object): ['Ideal' < 'Premium' < 'Very Good' < 'Good' < 'Fair']
+
+
+print(diamonds.dtypes)
+# carat       float64
+# cut        category
+# color      category
+# clarity    category
+# depth       float64
+# table       float64
+# price         int64
+# x           float64
+# y           float64
+# z           float64
+# dtype: object
+
+
+
+cut_categories=["fair","good","very good","premium","ideal"]
+diamonds.cut=diamonds.cut.astype(CategoricalDtype(categories=cut_categories , ordered=True)) # # Categories (5, object): ['Ideal' < 'Premium' < 'Very Good' < 'Good' < 'Fair'] yukarıda böyle kafasına göre bir sıralama yapılmış. iz bunu kendimize göre ayarlamak için bu şekilde kod yazdık.
+print(diamonds.head)
+# 0    NaN
+# 1    NaN
+# 2    NaN
+# 3    NaN
+# 4    NaN
+# Name: cut, dtype: category
+# Categories (5, object): ['fair' < 'good' < 'very good' < 'premium' < 'ideal']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

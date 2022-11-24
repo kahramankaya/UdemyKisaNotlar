@@ -507,6 +507,69 @@ print(diamonds.head)
 
 
 
+# barplot
+import seaborn as sns
+d=sns.load_dataset("diamonds")
+
+cut_categories=["fair","good","very good","premium","ideal"]
+d.cut=d.cut.astype(CategoricalDtype(categories=cut_categories , ordered=True))
+
+print(d.head())
+print(d["cut"].value_counts().plot.barh()) # çok güzel bir grafik elde ediyoruz bunun sayesinde.
+
+# aşağıda ki kod sayesinde grafiğin üstüne başlık ekledik.
+print(d["cut"].value_counts().plot.barh().set_title("Cut değişkeninin sınıf frekansları"))
+
+# aşağıa yukardan farklı olrak başa ve sona birer paranez koyduk. bu sayesede uzun satırlı bir kodu bu şekilde de kullanabildik.
+print((d["cut"].value_counts().
+       plot.barh().
+       set_title("Cut değişkeninin sınıf frekansları")))
+
+
+#barplot
+# bu aşağıda ki kod parcacıkları ile yukardakı uzun yolu kısalttık.
+print(sns.barplot(x="cut", y=d.cut.index, data=d))
+print(sns.barplot(x="cut", y=d.cut.index, data=d).set_title("Cut değişkeninin sınıf frekansları"))
+
+
+print(sns.catplot(x="cut", y=d["price"], data=d))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -561,6 +561,23 @@ print(df.groupby(["cut","color"])["price"].mean())
 
 
 
+# aşağıda ki kod satırı grafiği histogram şekline getirdi.
+import seaborn as sns
+df=sns.load_dataset("diamonds")
+print(sns.distplot(df.price), kde=False) # displot bize kendi kendine yaptığı aralıklarda fiyat dağılımını gösterir.
+
+print(sns.distplot(df.price), bins=1000 kde=False) # bins değerini arttırdıkça  grafik daha hasaslaşır. yani sayı arttıkça sütun sayısı artar aslında.
+
+print(sns.distplot(df.price), kde=True) # kde true olursa grafiğin üstüne başka bir şeyde eklenmiş olur. kde slisen bile yine bu çıktıyı verir. çünkü zaten kdi alt yapıda true olarak alınmış.
+
+print(sns.distplot(df.price), hist=False) # denilirse  histogram yok olur.  geriye kalan kalır.
+
+print(sns.kdeplot(df.price, shade=True)) # böylece grafiğim altını tam dolduracak şekilde yoğunluğu koyar.
+
+
+
+
+
 
 
 

@@ -503,6 +503,51 @@ print(sns.catplot(x="cut", y=d["price"], data=d))
 
 
 
+# sütun grafik çaprazlamalar: yani iki grafiği tek bir yerde topluyor gibi düşün.
+# burada kalite ve fiyatı çaprazladık. böylece kaliteye göre iyat bilgisi elimize ulaştı.
+import seaborn as sns
+df=sns.load_dataset("diamonds")
+print(sns.catplot(x="cut",y="price",data=df))
+
+# aşağıdaki satırda yukardaki satırın bizden sakladığı değerleri de bulduk. mesela fair'ı bir sürü renge ayırdı ve o renktekilerin hangi seviyede olduğunu gösterdi.
+print(sns.barplot(x="cut",y="price",hue="color" , data=df))
+print(df.groupby(["cut","color"])["price"].mean())
+# cut        color
+# Ideal      D        2629.094566
+#            E        2597.550090
+#            F        3374.939362
+#            G        3720.706388
+#            H        3889.334831
+#            I        4451.970377
+#            J        4918.186384
+# Premium    D        3631.292576
+#            E        3538.914420
+#            F        4324.890176
+#            G        4500.742134
+#            H        5216.706780
+#            I        5946.180672
+#            J        6294.591584
+# Very Good  D        3470.467284
+#            E        3214.652083
+#            F        3778.820240
+#            G        3872.753806
+#            H        4535.390351
+#            I        5255.879568
+#            J        5103.513274
+# Good       D        3405.382175
+#            E        3423.644159
+#            F        3495.750275
+#            G        4123.482204
+#            H        4276.254986
+#            I        5078.532567
+#            J        4574.172638
+# Fair       D        4291.061350
+#            E        3682.312500
+#            F        3827.003205
+#            G        4239.254777
+#            H        5135.683168
+#            I        4685.445714
+#            J        4975.655462
 
 
 

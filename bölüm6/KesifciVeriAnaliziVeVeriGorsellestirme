@@ -609,5 +609,15 @@ sns.catplot(x="cut",y="price",kind="point", data=df, hue="color")
 
 
 
+import seaborn as sns
+tips=sns.load_dataset("tips")
+print(tips["sex"].value_counts()) # kadın ve erkek sayısını verir.
+print(tips["smoker"].value_counts()) # sagara içen ve içmeyenlerin toplam sayısını verir.
+print(tips["day"].value_counts()) # günde gelen kişi sayısını verir.
+
+
+
+
+
 
 

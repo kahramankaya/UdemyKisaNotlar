@@ -582,12 +582,27 @@ print(sns.kdeplot(df.price, shade=True)) # böylece grafiğim altını tam doldu
 
 
 
+#FaceGrit()
+#import seaborn as sns
+#df=sns.load_dataset("diamonds")
+# xlim sayesinde x te değişkenleri ayarlayabiliyoruz. normalde fiyat 20000 e kadar gidebilirken biz 1 ile 10000 arasında yaptık.
+(sns.FacetGrid(df,
+              hue="cut",
+              height=10,
+              xlim=(1,10000))
+    .map(sns.kdeplot,"price", shade=True)
+)
 
 
 
 
 
 
+
+# catplot()
+import seaborn as sns
+df=sns.load_dataset("diamonds")
+sns.catplot(x="cut",y="price",kind="point", data=df, hue="color")
 
 
 

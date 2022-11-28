@@ -253,7 +253,7 @@ print(df3.tail(20)) # tek bir tane kategorik değişken olduğu için bu çıkt�
 # 1033  Transit
 # 1034  Transit
 
-print(df3.method.unique()) # böylece method kategorik değikeninde bulunan tüm sınıfları yazdırdık.
+print(df3.method.unique()) # böylece method kategorik değikeninde bulunan tüm sınıfları yazdırdık. sınıfları benzersiz bir şekilde yazdırır.
 # ['Radial Velocity' 'Imaging' 'Eclipse Timing Variations' 'Transit'
 #  'Astrometry' 'Transit Timing Variations' 'Orbital Brightness Modulation'
 #  'Microlensing' 'Pulsar Timing' 'Pulsation Timing Variations']

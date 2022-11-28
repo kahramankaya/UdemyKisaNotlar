@@ -566,7 +566,7 @@ import seaborn as sns
 df=sns.load_dataset("diamonds")
 print(sns.distplot(df.price, kde=False)) # displot bize kendi kendine yaptığı aralıklarda fiyat dağılımını gösterir.
 
-print(sns.distplot(df.price), bins=1000 kde=False) # bins değerini arttırdıkça  grafik daha hasaslaşır. yani sayı arttıkça sütun sayısı artar aslında.
+print(sns.distplot(df.price, bins=1000 , kde=False)) # bins değerini arttırdıkça  grafik daha hasaslaşır. yani sayı arttıkça sütun sayısı artar aslında.
 
 print(sns.distplot(df.price, kde=True)) # kde true olursa grafiğin üstüne başka bir şeyde eklenmiş olur. kde slisen bile yine bu çıktıyı verir. çünkü zaten kdi alt yapıda true olarak alınmış.
 
@@ -582,7 +582,7 @@ print(sns.kdeplot(df.price, shade=True)) # böylece grafiğim altını tam doldu
 
 
 
-#FaceGrit()
+#FacetGrit()
 #import seaborn as sns
 #df=sns.load_dataset("diamonds")
 # xlim sayesinde x te değişkenleri ayarlayabiliyoruz. normalde fiyat 20000 e kadar gidebilirken biz 1 ile 10000 arasında yaptık.
@@ -612,10 +612,9 @@ sns.catplot(x="cut",y="price",kind="point", data=df, hue="color")
 import seaborn as sns
 tips=sns.load_dataset("tips")
 print(tips["sex"].value_counts()) # kadın ve erkek sayısını verir.
-print(tips["smoker"].value_counts()) # sagara içen ve içmeyenlerin toplam sayısını verir.
+print(tips["smoker"].value_counts()) # sigara içen ve içmeyenlerin toplam sayısını verir.
 print(tips["day"].value_counts()) # günde gelen kişi sayısını verir.
 
-163.videodayım.
 
 
 

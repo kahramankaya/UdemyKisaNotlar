@@ -635,8 +635,14 @@ print(df["day"].value_counts())
 print(sns.boxplot(x="day",y="tip",data=df)) # mesela bakıldığında cumartersi günü müşteri sayısı en çok olduğu halde cuma ve pazar gününden daha az bahşiş verilmiş.
 
 
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(sns.boxplot(x="time",y="total_bill",data=df)) # akşam ve üğle kazanılan para gösteriliyor.
 
-
-
-
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(df)
+print(sns.boxplot(y="total_bill",x="size",data=df)) # bunun sayesinde kişi sayısı ile toplam ödenen aynı mı diye merak edip bulduk.
 

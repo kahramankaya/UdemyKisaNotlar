@@ -661,3 +661,48 @@ print(df.head())
 print(sns.catplot(y="total_bill",kind="violin",data=df)) # violin ortasında ki çizgi boxplot olarak sayılabilir. violin de bir yoğunluk grafiğidir.
 print(sns.catplot(x="day", y="total_bill",kind="violin",data=df)) # günlere göre violin grafiği. günlerde ödenilenin hangi aralıkta daha baskın olduğu violin grafiğinde şişkinlik olarak verilmiş.
 print(sns.catplot(x="day", y="total_bill",kind="violin",hue="sex",data=df))
+
+
+
+
+
+
+
+
+
+
+
+
+#korelasyon grafiği oluşturulması ve korelazyon çaprazlaması:
+# scatterplot: bununla birlikte iki sayısal değişkenin birlikte değerlendirmemizi sağlayacaktır. şuana kadar tek değişkenin verisini görselleştiriyorduk.
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(sns.scatterplot(y="tip", x="total_bill",hue="time",data=df))
+print(sns.scatterplot(y="tip", x="total_bill",style="time",data=df))
+print(sns.scatterplot(y="tip", x="total_bill",hue="time",style="time",data=df))
+print(sns.scatterplot(y="tip", x="total_bill",hue="day",style="time",data=df))
+print(sns.scatterplot(y="tip", x="total_bill",size="size",data=df)) 
+print(sns.scatterplot(y="tip", x="total_bill",size="size",hue="time",data=df)) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#doğrusal grafiğinin oluşturulması:
+import seaborn as sns
+import matplotlib.pyplot as plt
+print(sns.lmplot(x="total_bill", y="tip", data=df)) 
+print(sns.lmplot(x="total_bill", y="tip",hue="smoker", data=df)) # çok önemli. bize mesela sizgara içmeyenlerde doğrunun eğiminin daha fazla olduğunu gösterdi.
+print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time" ,data=df)) 
+print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time" ,data=df)) # bize iki garfik verdi ayrı ayrı. birisi akşam birisi de öğle yemeğine ait. bu verilerden sigara içip içmemeye göre demek ki bahşiş ve verilen para arsında ki ilişki değişiyor muş. ama bunun önemli olup olmadığını ilerde öğreneceğiz.
+print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time",row="sex" ,data=df)) # bize 4 grafik verdi. zaten her şey belli.

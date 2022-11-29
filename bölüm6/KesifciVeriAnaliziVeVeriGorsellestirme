@@ -645,4 +645,8 @@ tips=sns.load_dataset("tips")
 df=tips.copy()
 print(df)
 print(sns.boxplot(y="total_bill",x="size",data=df)) # bunun sayesinde kişi sayısı ile toplam ödenen aynı mı diye merak edip bulduk.
-
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(df)
+print(sns.boxplot(y="total_bill",x="day", hue="sex", data=df).set_title("günlere göre kadın ve erkeklerin verdiği toplam para")) 

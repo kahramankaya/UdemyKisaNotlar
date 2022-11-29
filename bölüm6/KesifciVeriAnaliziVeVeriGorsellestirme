@@ -625,3 +625,18 @@ tips=sns.load_dataset("tips")
 df=tips.copy()
 sns.boxplot(x=df["total_bill"]) # boxplot sayesinde çıkan grafikte ortadaki çizgi bize medyanı verir. 
 print(sns.boxplot(x=df["tip"], orient="v")) # orient sayesinde boxplot ters çevrildi.
+print(sns.boxplot(x=df["day"],y=df["tip"])) # günlere göre bahşiş miktarı verildi böylece.
+print(sns.boxplot(x="day",y="tip",data=df)) # bu ve üstte yazılan satır aynı sonucu verir. yazılanlara dikkatli bak.
+
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(df["day"].value_counts())
+print(sns.boxplot(x="day",y="tip",data=df)) # mesela bakıldığında cumartersi günü müşteri sayısı en çok olduğu halde cuma ve pazar gününden daha az bahşiş verilmiş.
+
+
+
+
+
+
+

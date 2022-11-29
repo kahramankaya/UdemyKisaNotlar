@@ -619,4 +619,8 @@ print(tips["day"].value_counts()) # günde gelen kişi sayısını verir.
 
 
 
-
+#boxplot
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+sns.boxplot(x=df["total_bill"]) # boxplot sayesinde çıkan grafikte ortadaki çizgi bize medyanı verir. 

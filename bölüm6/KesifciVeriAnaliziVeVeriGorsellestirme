@@ -624,3 +624,4 @@ import seaborn as sns
 tips=sns.load_dataset("tips")
 df=tips.copy()
 sns.boxplot(x=df["total_bill"]) # boxplot sayesinde çıkan grafikte ortadaki çizgi bize medyanı verir. 
+print(sns.boxplot(x=df["tip"], orient="v")) # orient sayesinde boxplot ters çevrildi.

@@ -650,3 +650,14 @@ tips=sns.load_dataset("tips")
 df=tips.copy()
 print(df)
 print(sns.boxplot(y="total_bill",x="day", hue="sex", data=df).set_title("günlere göre kadın ve erkeklerin verdiği toplam para")) 
+
+
+
+
+import seaborn as sns
+tips=sns.load_dataset("tips")
+df=tips.copy()
+print(df.head())
+print(sns.catplot(y="total_bill",kind="violin",data=df)) # violin ortasında ki çizgi boxplot olarak sayılabilir. violin de bir yoğunluk grafiğidir.
+print(sns.catplot(x="day", y="total_bill",kind="violin",data=df)) # günlere göre violin grafiği. günlerde ödenilenin hangi aralıkta daha baskın olduğu violin grafiğinde şişkinlik olarak verilmiş.
+print(sns.catplot(x="day", y="total_bill",kind="violin",hue="sex",data=df))

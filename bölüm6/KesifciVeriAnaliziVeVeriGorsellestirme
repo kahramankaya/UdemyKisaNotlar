@@ -706,3 +706,25 @@ print(sns.lmplot(x="total_bill", y="tip",hue="smoker", data=df)) # çok önemli.
 print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time" ,data=df)) 
 print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time" ,data=df)) # bize iki garfik verdi ayrı ayrı. birisi akşam birisi de öğle yemeğine ait. bu verilerden sigara içip içmemeye göre demek ki bahşiş ve verilen para arsında ki ilişki değişiyor muş. ama bunun önemli olup olmadığını ilerde öğreneceğiz.
 print(sns.lmplot(x="total_bill", y="tip",hue="smoker",col="time",row="sex" ,data=df)) # bize 4 grafik verdi. zaten her şey belli.
+
+
+
+
+
+
+
+
+
+
+
+
+
+import seaborn as sns 
+iris=sns.load_dataset("iris")
+df=iris.copy()
+print(sns.pairplot(df))
+print(sns.pairplot(df,hue="species"))
+print(sns.pairplot(df,hue="species",markers=["o","s","D"]))
+print(sns.pairplot(df,hue="species",kind="reg",markers=["o","s","D"])) # kind= "reg" ile grafiğe doğru ekleme işlemi yaptık
+
+

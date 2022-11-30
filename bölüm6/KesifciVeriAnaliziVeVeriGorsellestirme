@@ -766,3 +766,36 @@ print(sns.heatmap(df)) # bu satır pivot olmaz ise çalışmaz. yazılırsa dire
 print(sns.heatmap(df, annot=True,fmt="d")) # bu sayede sayılar eklendi.
 print(sns.heatmap(df, annot=True,fmt="d", linewidths=0.5)) # bu sayede üstte ki satırı daha da belirginleştirmek için linewidths ekledik.
 print(sns.heatmap(df, annot=True,fmt="d", cbar=False,linewidths=0.5))    # cbar sayesinde sağda duran barı ilmiş olduk.
+
+
+
+
+
+
+
+
+
+
+
+
+import seaborn as sns 
+fmri=sns.load_dataset("fmri")
+df=fmri.copy()
+print(df)
+print(df["timepoint"].value_counts()) # demek ki timepoint yani zaman noktasına göre eşit sayım yapılmış.
+print(df.groupby("timepoint")["signal"].count()) aynı sonucu verir.
+
+
+
+
+
+
+
+# çizgi grafik ve çaprazmalar
+import seaborn as sns 
+fmri=sns.load_dataset("fmri")
+df=fmri.copy()
+print(sns.lineplot(x="timepoint",y="signal", data=df))
+
+
+

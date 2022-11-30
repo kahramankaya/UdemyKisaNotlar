@@ -728,3 +728,17 @@ print(sns.pairplot(df,hue="species",markers=["o","s","D"]))
 print(sns.pairplot(df,hue="species",kind="reg",markers=["o","s","D"])) # kind= "reg" ile grafiğe doğru ekleme işlemi yaptık
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# heatmap=ısı haritası:
+

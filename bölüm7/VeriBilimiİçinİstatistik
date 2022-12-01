@@ -23,7 +23,7 @@ rp.summary_cont(df[["total_bill","tip","size"]]) # summary_cont sayısal değiş
 rp.summary_cat(df[["sex","smoker","time"]])
 
 
-
+181.video
 
 
 

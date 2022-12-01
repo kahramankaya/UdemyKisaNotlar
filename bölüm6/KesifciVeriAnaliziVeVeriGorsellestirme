@@ -795,7 +795,41 @@ print(df.groupby("timepoint")["signal"].count()) aynı sonucu verir.
 import seaborn as sns 
 fmri=sns.load_dataset("fmri")
 df=fmri.copy()
+print(df.groupby("timepoint").count()) # görüldüğü üzere her değişken her zaman noktasında 56 kere ölçülmüş. mesela signalher zaman noktasında 56 kere ölçülmüş. 
 print(sns.lineplot(x="timepoint",y="signal", data=df))
+print(sns.lineplot(x="timepoint",y="signal", hue="event" ,data=df))
+print(sns.lineplot(x="timepoint",y="signal", hue="event",style="event" ,data=df))
+print(sns.lineplot(x="timepoint",y="signal", hue="event",style="event",markers=True,dashes=False ,data=df))
+print(sns.lineplot(x="timepoint",y="signal", hue="region",style="event",data=df))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#basit zaman serisi grafiği:
+!pip install pandas_datareader
+import pandas_datareader as pr
+df=pr.get_data_yahoo("AAPL",start="2015-10-05",end="2019-05-20") # biz bir hissenin ismini girdik. daha sonra başlangıç ve son zamanı vererek bu zaman aralığında hissenin bilgilerine ulaştık.
+print(df.head())
+print(df["close"].plot()) # böylece bu hissenin kapanma değerlerini x ekseninde tarihler ve y ekseninde ise kapanma değerleri yazılan grafik olur.
+print(df["close"].index) # burada x eksenin de var olan tarihler gelir yani index bunlardır.
+
+
+
+
 
 
 

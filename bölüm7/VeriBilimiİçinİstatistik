@@ -1,3 +1,10 @@
+# örnek teorisi uygulama:
+import numpy as np
+populasyon=np.random.randint(0,80,1000) # 0 ile 80 yaş arası 1000 seç.
+print(populasyon[0:10]) # ilk 10 tanesini yazdırdım.
+orneklem=np.random.choice(a=populasyon, size=100) #populasyondan rasgele 100 kişi seç.
+print(orneklem.mean())
+print(populasyon.mean()) # bu iki satırdan şu anlaşılıyor: orneklem ve populasyon ortalaması birbirine ne kadar yakın olduğunu görmüş olduk.
 
 
 

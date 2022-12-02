@@ -10,20 +10,37 @@ print(populasyon.mean()) # bu iki satırdan şu anlaşılıyor: orneklem ve popu
 
 
 
-
+# betimsel istatistik uygulama:
 import seaborn as sns
 tips=sns.load_dataset("tips")
 df=tips.copy()
 print(df.head())
 
-
-!pip install researchpy
+!pip install researchpy # bu sayede kütüphanemizi indirdik.
 import researchpy as rp
 rp.summary_cont(df[["total_bill","tip","size"]]) # summary_cont sayısal değişken seçmek için kullanılır.
 rp.summary_cat(df[["sex","smoker","time"]])
 
+print(df[["total_bill","tip"]].cov()) # bu sayede koveryans bilgisi geldi.
+print(df[["total_bill","tip"]].corr()) # bu şekilde de korelasyona bakmış olduk. her ikisi arasında 0.67 lik pozitif bir ilişki var demek ki.
 
-181.video
+
+# güven aralıkları
+import numpy as np
+fiyatlar=np.random.randint(1,100,1000) # 1 ile 100 tl arasında fiyatı belirlemek için 1000 müşteriye baktığımızı varsayalım.
+import statsmodels.stats.api as sms
+print(sms.DescrStatsW(fiyatlar).tconfint_mean()) # demek ki 1000 kişi yüzde 95 ihtimalle çıkan bu iki değer arasında ürüne fiyat biçmiş.
+
+
+
+
+
+
+# olasılık dağılımları:
+# bernoulli dağılımı:
+
+
+
 
 
 

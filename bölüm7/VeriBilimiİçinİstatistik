@@ -70,4 +70,42 @@ print(rv.pmf(5)) # 100 kişiden 5 kişinin tıklama olasılığı
 print(rv.pmf(10)) # 100 kişiden 10 kişinin tıklama olasılığı
 
 
-# 190. videodayım.
+
+
+
+
+#poisson dağılımı. 190.video için şu videoyu izle: https://www.youtube.com/watch?v=6938zXG9FWU&t=703s
+from scipy.stats import poisson
+lambdaa=0.1 #(lamda ortalama hata sayısını verir.)
+rv=poisson(mu=lambdaa) # mu poissonun bir argümanıdır.
+print(rv.pmf(k=0)) # hiç hata olmama olasılığını bulduk.
+print(rv.pmf(k=3)) # 3 hata olma olasılığını bulduk. k kaç ise o kadarını bulur.
+
+
+
+
+
+
+
+#normal dağılım:
+#diyelim ki bir iş te dağılımın normal olduğu biliniyor. aylık ortalama satış sayısı 80k ve standart sapma 5 tir. soru şu önümüzde ki ay satışların 90k dan fazla olma olasılığı nedir?
+# şimdi zaten standart sapma 5 ise demek ki önümüzde ki günler de çooook yüksek olasılıkla 80-5<olasılık<80+5 civarında olur. standart sapmayı böyle kullanıyoruz.
+# istersen deneyelim şimdi. 0 dan fazla olma olasılığına bak ve de 75 olma olasılığının sonucuna bak.
+# tabii bu sonuçlar aslında intagral ile bulunuyor. bu integralin bu alanı burada aşağıda yazdığımız fonksiyonlar hal ediyor. 
+# grafiğin altı tümü toplamı 1 sayılır.
+
+from scipy.stats import norm
+#90 dan fazla olma olasılığı:
+print(1-norm.cdf(90,80,5)) # dikkkat et 1 den cıkardım fazla olma olasılıgı denildiğinde. 90 istenilen 80 normal ortalama zaten ve en sonda ki 5 ise standart sapmadır. 0.02275013194817921
+
+# 73 ten az olma olasılığı:
+print(norm.cdf(73,80,5)) # 0.08075665923377107
+
+# 85 ile 90 arasında olma olasılığı :
+print(norm.cdf(90,80,5)-norm.cdf(85,80,5)) # 0.13590512198327787
+
+
+
+
+
+

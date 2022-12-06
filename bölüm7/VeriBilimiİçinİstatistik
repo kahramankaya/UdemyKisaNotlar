@@ -105,7 +105,25 @@ print(norm.cdf(73,80,5)) # 0.08075665923377107
 print(norm.cdf(90,80,5)-norm.cdf(85,80,5)) # 0.13590512198327787
 
 
-# 196. video
+
+
+# hata ipleri. 196. video da ya da youtube da bakabilirsin.
+
+# p-value değeri 197. video ya da youtube dan bakabilirsin.
+
+# hipotez testleri adımları 198. video ya da youtube dan konuya bakabilirsin.
+
+# tek örneklem T testi: 199. video ya da youtube dan gereken videoları izleyebilirsin.
+
+
+
+# elimizde bir web sitesi var. bu sitede kullanıcıların ortalama ne kadar süre harcadıklarını bulmaya çalışacağız.
+# tabii bunu belirlerken z , t testleri gibi testleri kullanacağız.mean() bize bir değer gösterir. ama bu değer belki de şansa bağlı olarak olmuştur.
+# belki bilgisayar öyle değerler seçmiştir ki mean() yani ortalama değer öyle çıkmıştır. işe bu yüzden hipotez testleri vardır. bu testler ile bizler şansı en aza indererk yüzde 95 doğruluk payı ile gerçek te web sitesinde geçirilen değeri bulmaya çalışıyoruz.
+
+
+# 202. videodayım.
+
 
 
 

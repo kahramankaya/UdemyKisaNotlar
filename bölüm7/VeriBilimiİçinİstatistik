@@ -122,6 +122,20 @@ print(norm.cdf(90,80,5)-norm.cdf(85,80,5)) # 0.13590512198327787
 # belki bilgisayar öyle değerler seçmiştir ki mean() yani ortalama değer öyle çıkmıştır. işe bu yüzden hipotez testleri vardır. bu testler ile bizler şansı en aza indererk yüzde 95 doğruluk payı ile gerçek te web sitesinde geçirilen değeri bulmaya çalışıyoruz.
 
 
+import numpy as np
+import scipy.stats as stats
+# web sitesinde geçirilen süreleri böyle bir array haline getirdik. ama normalde bu bize csv modunda gelipte okuyabilirdik.
+olcumler=np.array([45,78,79,28,49,76,33,42,41,71,81,61,62,86,96,654])
+print(stats.describe(olcumler)) # DescribeResult(nobs=16, minmax=(28, 654), mean=98.875, variance=22327.983333333334, skewness=3.500184345920849, kurtosis=10.557917648609019)
+# görüldüğü üzere ortlama geçirilen süre mean() = 98 saniye denilebilir. ama bu şansa bağlı olarakta gerçekleşmiş olabilir. bu yüzden sonra ki adımımız hipotez testlerine geçmek olacaktır.
+
+
+
+
+
+
+
+
 # 202. videodayım.
 
 

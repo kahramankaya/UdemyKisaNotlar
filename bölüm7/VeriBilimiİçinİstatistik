@@ -125,9 +125,38 @@ print(norm.cdf(90,80,5)-norm.cdf(85,80,5)) # 0.13590512198327787
 import numpy as np
 import scipy.stats as stats
 # web sitesinde geçirilen süreleri böyle bir array haline getirdik. ama normalde bu bize csv modunda gelipte okuyabilirdik.
-olcumler=np.array([45,78,79,28,49,76,33,42,41,71,81,61,62,86,96,654])
+olcumler=np.array([45,78,79,28,49,76,33,42,41,71,81,61,62,86,96,654]) # bu biim örneklememiz de ki ölçümler. bunlara bakarak daha genel bir sonuç çıkarmakyaya yarar. mesela 1000 nufuslu ılcede 100 kişinin değerleerine bakılması da bır orneklemdır.
 print(stats.describe(olcumler)) # DescribeResult(nobs=16, minmax=(28, 654), mean=98.875, variance=22327.983333333334, skewness=3.500184345920849, kurtosis=10.557917648609019)
 # görüldüğü üzere ortlama geçirilen süre mean() = 98 saniye denilebilir. ama bu şansa bağlı olarakta gerçekleşmiş olabilir. bu yüzden sonra ki adımımız hipotez testlerine geçmek olacaktır.
+# H0=fark yoktur.... burada h0 ve h1 diye hipotez kurduk. orneklem ile teorik te ki değerler arasında ki fark için fark vardır ya da yoktur dedik. bunu öğrenmek için ise pylab ya da shapiro tetslerini kullanıp dağılımda fark olup olmadığına bakacağız. böylece fark yoksa h0 reddedilmez. fark var ise h0 red edilir.
+# H1=fark vardır.... bu arada orneklem ve teorik dedik burda kş teorik şu oluyor: orneklem ilcede ki 100 işi iken teorik gercek ilcedeki 1000 kişinin değerleridir.
+# şimdi ise bu 98 değeri şansa bağlı olup olmadığını öğrenmek için hipotez testlerine geçmemiz gerekiyor. ama daha geçmeden önce "varsayımlar kısmı var"
+# varsayımlar
+import pylab
+stats.probplot(olcumler, dist="norm",plot="pylab")
+print(pylab.show()) # şimdi bu grafikte sol değerler 
+
+
+# web site yoneticisi bizden gecırılen surenın 15 olup olmadıgını soruyor ortalamaya baktık ve 98 cıktı ama biz yıne şansa baglıdır belkı dıyıp hıpotez testlerine gectık.
+
+# shapiro-wilk testi:
+from scipy.stats import shapiro # aşağıda bize 2 değer verildi. sağda ki pvalue değeri gördüğümüz üzere.
+print(shapiro(olcumler)) # ShapiroResult(statistic=0.39786744117736816, pvalue=3.374176742454438e-07) . eğer pvalue değeri 0.05 den küçükse h0 red ediyoruz. değilse h0 ret edemiyoruz.
+# karmakarıık grafiklere bakmak yerine sadece pvalue değerine bakarak h0 ın red edilip edilmeyecegını gorebılır. burda mesela 0.05 ten buyuk oldugu h0 red edılmez. 
+# h0 red edilmediği içinde tek orneklem t testi kullanılır.
+
+
+
+
+# hipotez testinin uygulanması:
+
+# h0=web sitesinde gecirilen ortalama süre 98 saniyedir.
+# h1=web sitesinde gecirilen ortalama süre 98 saniye değildir.
+print(stats.ttest_1samp(olcumler,popmean=15)) # web sitesinde gecirilen ortalama süre 98 mi? diye sormuş olduk.
+# Ttest_1sampResult(statistic=0.023423041868234133, pvalue=0.981621583430751) # sonucu baktığımızda  plavlue degeri 0.05 ten kucuk yanı h0 degeri red edilmeli. yani web sitesinde gecirilen ortalama sure demek ki 98 den farklıdır. demek ki 98 şans eseri olmuş demektir.
+
+
+# 204. video
 
 
 
@@ -136,7 +165,15 @@ print(stats.describe(olcumler)) # DescribeResult(nobs=16, minmax=(28, 654), mean
 
 
 
-# 202. videodayım.
+
+
+
+
+
+
+
+
+
 
 
 

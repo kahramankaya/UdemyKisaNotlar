@@ -152,7 +152,7 @@ print(shapiro(olcumler)) # ShapiroResult(statistic=0.39786744117736816, pvalue=3
 
 # h0=web sitesinde gecirilen ortalama süre 98 saniyedir.
 # h1=web sitesinde gecirilen ortalama süre 98 saniye değildir.
-print(stats.ttest_1samp(olcumler,popmean=15)) # web sitesinde gecirilen ortalama süre 98 mi? diye sormuş olduk.
+print(stats.ttest_1samp(olcumler,popmean=15)) # web sitesinde gecirilen ortalama süre 15 mi? diye sormuş olduk.
 # Ttest_1sampResult(statistic=0.023423041868234133, pvalue=0.981621583430751) # sonucu baktığımızda  plavlue degeri 0.05 ten kucuk yanı h0 degeri red edilmeli. yani web sitesinde gecirilen ortalama sure demek ki 98 den farklıdır. demek ki 98 şans eseri olmuş demektir.
 
 

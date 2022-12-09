@@ -137,9 +137,9 @@ stats.probplot(olcumler, dist="norm",plot="pylab")
 print(pylab.show()) # şimdi bu grafikte sol değerler 
 
 
-# web site yoneticisi bizden gecırılen surenın 15 olup olmadıgını soruyor ortalamaya baktık ve 98 cıktı ama biz yıne şansa baglıdır belkı dıyıp hıpotez testlerine gectık.
+# web site yoneticisi bizden gecırılen surenın 98 olup olmadıgını soruyor ortalamaya baktık ve 98 cıktı ama biz yıne şansa baglıdır belkı dıyıp hıpotez testlerine gectık.
 
-# shapiro-wilk testi:
+# shapiro-wilk testi: dağılım normal olup olmadığını gösterir. eğer dağılım normal ise t testi uygulanabilir.
 from scipy.stats import shapiro # aşağıda bize 2 değer verildi. sağda ki pvalue değeri gördüğümüz üzere.
 print(shapiro(olcumler)) # ShapiroResult(statistic=0.39786744117736816, pvalue=3.374176742454438e-07) . eğer pvalue değeri 0.05 den küçükse h0 red ediyoruz. değilse h0 ret edemiyoruz.
 # karmakarıık grafiklere bakmak yerine sadece pvalue değerine bakarak h0 ın red edilip edilmeyecegını gorebılır. burda mesela 0.05 ten buyuk oldugu h0 red edılmez. 
@@ -147,13 +147,13 @@ print(shapiro(olcumler)) # ShapiroResult(statistic=0.39786744117736816, pvalue=3
 
 
 
-
+# shapiro ile dağılımın normal olduğu belirlendi bu yüzden artık burada hipotez kımına geçip t testini uyguladık.
 # hipotez testinin uygulanması:
 
 # h0=web sitesinde gecirilen ortalama süre 98 saniyedir.
 # h1=web sitesinde gecirilen ortalama süre 98 saniye değildir.
-print(stats.ttest_1samp(olcumler,popmean=15)) # web sitesinde gecirilen ortalama süre 15 mi? diye sormuş olduk.
-# Ttest_1sampResult(statistic=0.023423041868234133, pvalue=0.981621583430751) # sonucu baktığımızda  plavlue degeri 0.05 ten kucuk yanı h0 degeri red edilmeli. yani web sitesinde gecirilen ortalama sure demek ki 98 den farklıdır. demek ki 98 şans eseri olmuş demektir.
+print(stats.ttest_1samp(olcumler,popmean=98)) # web sitesinde gecirilen ortalama süre 98 mi? diye sormuş olduk.
+# Ttest_1sampResult(statistic=0.023423041868234133, pvalue=0.03) # sonucu baktığımızda  plavlue degeri 0.05 ten kucuk yanı h0 degeri red edilmeli. yani web sitesinde gecirilen ortalama sure demek ki 98 den farklıdır. demek ki 98 şans eseri olmuş demektir.
 
 
 # 204. video

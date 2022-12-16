@@ -147,7 +147,7 @@ print(shapiro(olcumler)) # ShapiroResult(statistic=0.39786744117736816, pvalue=3
 
 
 
-# shapiro ile dağılımın normal olduğu belirlendi bu yüzden artık burada hipotez kımına geçip t testini uyguladık.
+# shapiro ile dağılımın normal olduğu belirlendi bu yüzden artık burada hipotez kımına geçip t testini uyguladık. eger p-value 0.05 ten kucuk olsaydı o zaman asagıda kı nonparametrik test uygulanırdı.
 # hipotez testinin uygulanması:
 
 # h0=web sitesinde gecirilen ortalama süre 98 saniyedir.
@@ -156,7 +156,18 @@ print(stats.ttest_1samp(olcumler,popmean=98)) # web sitesinde gecirilen ortalama
 # Ttest_1sampResult(statistic=0.023423041868234133, pvalue=0.03) # sonucu baktığımızda  plavlue degeri 0.05 ten kucuk yanı h0 degeri red edilmeli. yani web sitesinde gecirilen ortalama sure demek ki 98 den farklıdır. demek ki 98 şans eseri olmuş demektir.
 
 
-# 204. video
+
+
+
+# nonparametrik tek örneklem testi:
+import numpy as np
+olcumler=np.array([45,78,79,28,49,76,33,42,41,71,81,61,62,86,96,654]) 
+# eğer ki p-value 0.05 ten küçük ise o zaman tek örneklem t testini kullanamıyoruz.
+from statsmodels.stats.descriptivestats import sign_test
+sign_test(olcumler, 98) # (-7.0, 0.000518798828125) sağda ki p-value değeri oluyor. ve p-value değeri 0.05 ' ten küçük. o zamn h0 red edilir. h1 kabul edilir.
+
+
+
 
 
 

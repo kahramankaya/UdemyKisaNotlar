@@ -169,6 +169,12 @@ sign_test(olcumler, 98) # (-7.0, 0.000518798828125) sağda ki p-value değeri ol
 
 
 
+# tek orneklem oran testı: a/b yani oran larda kullanılan bir testtir.
+# z testi uzerınden hesaplama yapılır. bunun için de n>30 olmak zorundadır.n orneklem sayısını ifade ediyor.
+
+
+
+
 
 
 

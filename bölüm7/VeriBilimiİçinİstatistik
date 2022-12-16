@@ -159,18 +159,10 @@ print(stats.ttest_1samp(olcumler,popmean=98)) # web sitesinde gecirilen ortalama
 
 
 
-# nonparametrik tek örneklem testi:
-import numpy as np
-olcumler=np.array([45,78,79,28,49,76,33,42,41,71,81,61,62,86,96,654]) 
-# eğer ki p-value 0.05 ten küçük ise o zaman tek örneklem t testini kullanamıyoruz.
-from statsmodels.stats.descriptivestats import sign_test
-sign_test(olcumler, 98) # (-7.0, 0.000518798828125) sağda ki p-value değeri oluyor. ve p-value değeri 0.05 ' ten küçük. o zamn h0 red edilir. h1 kabul edilir.
-
-
-
-
-# tek orneklem oran testı: a/b yani oran larda kullanılan bir testtir.
-# z testi uzerınden hesaplama yapılır. bunun için de n>30 olmak zorundadır.n orneklem sayısını ifade ediyor.
+# Nonparametrik tek örneklem testi 
+# eğer bizim daha önce yaptığımız normallik dağılımı normal dağılmamış olsaydı ya da pvalue değeri 0.05 ten küçük olsaydı o zman nonparametrik tek orneklem testi kullanırdık. 
+from statsmodel.stats.descriptivestats import sign_test  
+sign_test(olcumler,98)
 
 
 
@@ -180,6 +172,21 @@ sign_test(olcumler, 98) # (-7.0, 0.000518798828125) sağda ki p-value değeri ol
 
 
 
+#tek örneklem oran testi:  
+ 
+# elimizde bir dönüşüm oranı var. bu oran 0.125 denilmiş. bu dönüşüm oranı reklam olarak alınabilir mesela.  
+# ama biz bundan şüphe duyduğumuz için bunu test etmemiz gerekir. ve de elimzde şu var: 500 ziyaretten 40 kişi ürünü satın almış. 
+ 
+# H0:p=0.125 
+# H1:p!=0.125 # hiipotezleri şu şekilde koyduk. 
+from statsmodels.stats.proportion import proportions_ztest 
+count=40 
+nobs=500 
+value=0.125 # bu bizim test etmek istediğimiz değer. bunu value diyoruz. 
+# print(proportions_ztest(count,nobs,value)) değerler bu sıra ile girilmesi gerekir. 
+print(proportions_ztest(40,500,0.125)) # (-3.7090151628513017, 0.0002080669689845979) 
+#çıkan sonucta yıne ıkıncı sonuc pvalue degeri oluyor. 
+# ve de 0.05 ten küçük oldugu ıcın h0 red edilir. yanı donusum oranı demek kı 0.125 ten farklı imiş. bu yüzde 95 ihtimalle boyle tabıı ki her zman dedıgımız gıbı.
 
 
 
@@ -191,7 +198,24 @@ sign_test(olcumler, 98) # (-7.0, 0.000518798828125) sağda ki p-value değeri ol
 
 
 
-
-
-
-
+from abc import ABC 
+# Bağımsız iki örneklem t testi:(AB testi): iki grup orantıları arasında karşılaştırma yapmak için kullanılır. 
+# ML(makine ögrenmesı) modelinin basarı testı 
+# biz şirkette bir veribilimci işe aldık ve ondan sistemi makine ogrenmesı yoluyla geliştirmesini istedik. AB testinde amacımız yaptıgımız degısıkler sonucu eskı sıstem ve yenı sısteme baktıgımız zmana yenı sıstem de bır degısıklık olup olmadıgını saptmak . 
+# ML modeli anlamlı bır farklılık oluşturabildi mi? 
+# h0:u1=u2 # insanlar ürün alırken makine ogrenımı yoluyla urun alımında degısıklık yaratabılındı. asagıda ki ise yaratılmadı denılıyor. 
+# h1:u1!=u2 
+import numpy as np 
+import pandas as pd 
+a=np.random.randint(1,100,20) 
+b=np.random.randint(25,200,20) 
+A=pd.DataFrame(a) 
+B=pd.DataFrame(b) # burada ki A eski sistemin gelen gelirlerini B ise yeni sistemin gelirlerini gösterir.  
+A_B=pd.concat([A,B],axis=1) 
+A_B.columns=["A","B"] 
+print(A_B)  
+ 
+ 
+ 
+import seaborn as sns 
+print(sns.boxplot(x=A, y=A_B,data=A))

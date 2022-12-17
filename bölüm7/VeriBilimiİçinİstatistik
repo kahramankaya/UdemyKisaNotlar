@@ -198,26 +198,32 @@ print(proportions_ztest(40,500,0.125)) # (-3.7090151628513017, 0.000208066968984
 
 
 
-from abc import ABC 
+
 # Bağımsız iki örneklem t testi:(AB testi): iki grup orantıları arasında karşılaştırma yapmak için kullanılır. 
 # ML(makine ögrenmesı) modelinin basarı testı 
 # biz şirkette bir veribilimci işe aldık ve ondan sistemi makine ogrenmesı yoluyla geliştirmesini istedik. AB testinde amacımız yaptıgımız degısıkler sonucu eskı sıstem ve yenı sısteme baktıgımız zmana yenı sıstem de bır degısıklık olup olmadıgını saptmak . 
 # ML modeli anlamlı bır farklılık oluşturabildi mi? 
 # h0:u1=u2 # insanlar ürün alırken makine ogrenımı yoluyla urun alımında degısıklık yaratabılındı. asagıda ki ise yaratılmadı denılıyor. 
 # h1:u1!=u2 
-import numpy as np 
-import pandas as pd 
-a=np.random.randint(1,100,20) 
-b=np.random.randint(25,200,20) 
-A=pd.DataFrame(a) 
-B=pd.DataFrame(b) # burada ki A eski sistemin gelen gelirlerini B ise yeni sistemin gelirlerini gösterir.  
-A_B=pd.concat([A,B],axis=1) 
-A_B.columns=["A","B"] 
-print(A_B)  
- 
- 
- 
-import seaborn as sns 
-print(sns.boxplot(x=A, y=A_B,data=A))
+import numpy as np
+import pandas as pd
+a=np.random.randint(1,100,20) # ESKİ SİSTEMİN VERİLERİ.
+b=np.random.randint(50,150,20) # YENİ SİSTEMİN VERİLERİ.
+A=pd.DataFrame(a)
+B=pd.DataFrame(b)
 
+c=np.arange(len(a))
+C=pd.DataFrame(c)
+C[:]="A"
+k=pd.concat([C,A],axis=1)
 
+d=np.arange(len(a))
+D=pd.DataFrame(d)
+D[:]="B"
+l=pd.concat([D,B],axis=1)
+M=pd.concat([k,l],axis=0)
+M.columns=["MAKİNE","GelişmişlikPuanı"]
+print(M)
+
+import seaborn as sns
+print(sns.boxplot(x="MAKİNE",y="GelişmişlikPuanı",data=M))

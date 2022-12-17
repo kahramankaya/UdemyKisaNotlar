@@ -221,5 +221,3 @@ import seaborn as sns
 print(sns.boxplot(x=A, y=A_B,data=A))
 
 
-
-208.video sonlara doğrudayım.

@@ -199,6 +199,16 @@ print(proportions_ztest(40,500,0.125)) # (-3.7090151628513017, 0.000208066968984
 
 
 
+
+
+
+
+
+
+
+# MAKİNE ÖĞRENİMİ TESTİ: bu testte eski makine öğrenmesini ve yenisini karşılaştırıp gerçekten yeni makine öğrenimi durumu nasıl diye bakacağız.
+
+
 # Bağımsız iki örneklem t testi:(AB testi): iki grup orantıları arasında karşılaştırma yapmak için kullanılır. 
 # ML(makine ögrenmesı) modelinin basarı testı 
 # biz şirkette bir veribilimci işe aldık ve ondan sistemi makine ogrenmesı yoluyla geliştirmesini istedik. AB testinde amacımız yaptıgımız degısıkler sonucu eskı sıstem ve yenı sısteme baktıgımız zmana yenı sıstem de bır degısıklık olup olmadıgını saptmak . 
@@ -207,8 +217,8 @@ print(proportions_ztest(40,500,0.125)) # (-3.7090151628513017, 0.000208066968984
 # h1:u1!=u2 
 import numpy as np
 import pandas as pd
-a=np.random.randint(1,100,20) # ESKİ SİSTEMİN VERİLERİ.
-b=np.random.randint(50,150,20) # YENİ SİSTEMİN VERİLERİ.
+a=np.random.randint(1,100,20) # ESKİ ML SİSTEMİN VERİLERİ.
+b=np.random.randint(50,150,20) # YENİ ML SİSTEMİN VERİLERİ.
 A=pd.DataFrame(a)
 B=pd.DataFrame(b)
 
@@ -247,12 +257,31 @@ print(t)
 from scipy.stats import shapiro
 print(shapiro(t.A)) # ShapiroResult(statistic=0.9648950099945068, pvalue=0.6455031633377075)
 # p-value değeri 0.05 ten büyük yani t orneklem t testi kullanılabilir.
-
-
-
-
+# ŞİMDİ BURDA NORMALLİK DAĞILIMINA BAKTIK.NORMALMİŞ. ŞİMDİ AŞAMA İSE VARYANS DAĞILIMINA BAKACAĞIZAŞAĞIDA.
 
 # VARYANS HOMOJENLİĞİ VARSAYIMI:
+
+#H0: varyans homojendir.
+#H1: varyans homojen değildir.
+from scipy.stats import levene
+stats.levene(t.A,t.B)
+# eğer p-value değeri 0.05 ten küçük ise o zaman h0 red edilir değilse red edilmez. böylece varyansın homojen olup olmadığı anlaşılır.
+
+
+
+#HİPOTEZ TESTİ AŞAMASI:
+print(stats.ttest_ind(t.A,t.B,equel_var=True)) # burada equel kısmı varyansın normal dağılım dağılmadığını gösteiri. yukarda dağılım nor mal olduğu için True diye belirttik.
+# burada çıkan p-value değeri bize h0 red edip etmediğimizi söyler.
+# bu hipoteze göre makine öğrenmesinin dönüşüm oranına yaptığı fayda var mı yok mu ogrenmıs oluyoruz.
+
+# aşagıda yapılacak işlem sadece değerlerin ilk 4 basamagını almak için yaptıgımız bır şey.
+test_istatiği,p-value=stats.ttest_ind(t["A"],t["B"],equel_var=True) # test_istatiği,p-value bu ikisinin değerini bu ikisi ile eşleştirmiş olduk.
+print("test_istatistiği=%.4f,p-değeri=%.4f" % (test_istatiği,p-value) ) # yuzde 4f dediğimiz zamn o değerin noktadan sonraki kısmının ilk 4 basmağını al demekir.
+# en son yazılan (test_istatiği,p-value)  bunun sol tarafı ilk 4f ile sağdaki ise diğeri ile eşleşir. mustafa vahit keskin 210. video sonlara doğru.
+
+
+
+
 
 
 

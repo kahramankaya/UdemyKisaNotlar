@@ -227,3 +227,32 @@ print(M)
 
 import seaborn as sns
 print(sns.boxplot(x="MAKİNE",y="GelişmişlikPuanı",data=M))
+
+
+
+# şimdi normallik testinden sonra shapiro testini uyguladık ama shapiro tek değişken aldığı için
+#bize gelen veri setinde eğer şöyle ise bu veri setinin düzeltilmesi gerekir.
+#mesela yukarda her değerin yanında A yazıyor bunu shapiro da kullanmazsın.
+#eğerki sutunu en ustunde A yazıp altta onun değeri varsa shapiro o zamn kullanılabilir. ders 209 mustafa vahit.
+import numpy as np
+import pandas as pd
+a=np.random.randint(1,100,20)
+b=np.random.randint(50,150,20)
+A=pd.DataFrame(a)
+B=pd.DataFrame(b)
+t=pd.concat([A,B],axis=1)
+t.columns=["A","B"]
+print(t)
+# normallik varsayımı:
+from scipy.stats import shapiro
+print(shapiro(t.A)) # ShapiroResult(statistic=0.9648950099945068, pvalue=0.6455031633377075)
+# p-value değeri 0.05 ten büyük yani t orneklem t testi kullanılabilir.
+
+
+
+
+
+# VARYANS HOMOJENLİĞİ VARSAYIMI:
+
+
+

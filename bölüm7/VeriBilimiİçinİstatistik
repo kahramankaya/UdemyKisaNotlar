@@ -37,6 +37,19 @@ print(sms.DescrStatsW(fiyatlar).tconfint_mean()) # demek ki 1000 kişi yüzde 95
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # olasılık dağılımları:
 # bernoulli dağılımı:
 from scipy.stats import bernoulli
@@ -278,6 +291,41 @@ print(stats.ttest_ind(t.A,t.B,equel_var=True)) # burada equel kısmı varyansın
 test_istatiği,p-value=stats.ttest_ind(t["A"],t["B"],equel_var=True) # test_istatiği,p-value bu ikisinin değerini bu ikisi ile eşleştirmiş olduk.
 print("test_istatistiği=%.4f,p-değeri=%.4f" % (test_istatiği,p-value) ) # yuzde 4f dediğimiz zamn o değerin noktadan sonraki kısmının ilk 4 basmağını al demekir.
 # en son yazılan (test_istatiği,p-value)  bunun sol tarafı ilk 4f ile sağdaki ise diğeri ile eşleşir. mustafa vahit keskin 210. video sonlara doğru.
+
+
+
+# bagımsız ıkı orneklem t testi
+# diyelim ki hem normallik testi hemde varyans negatif çıktı o zaman bu testimiz alt satırda.
+stats.mannwhityenu(t.A,t.B) # boylece sonucu gördük.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# BAGIMLI IKI ORNEKLEM T TESTİ: 
+
+import numpy as np
+import pandas as pd
+a=np.random.randint(1,100,20)
+b=np.random.randint(50,150,20)
+K=pd.DataFrame(a)
+L=pd.DataFrame(b)
+O=pd.concat([A,B],axis=1)
+O.columns=["ONCE","SONRA"]
+print(O) # Eger bıze gelen veri setı bu sekılde ıse kolayca hal edilir.
+
+
+
+
 
 
 

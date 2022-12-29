@@ -1,0 +1,37 @@
+#veri ön işleme :
+#veri temizleme(data cleaning/cleasing):
+#1-gürültülü veri(noisy data)
+#2-eksik veri analizi(mising data analysis)
+#3-aykırı gözlem analizi(outlier analysis)
+
+#AYKIRI DEĞERİN ALT VE ÜST SINIRLARINI BULMA:
+import seaborn as sns
+diamonds=sns.load_dataset("diamonds")
+df=diamonds.copy()
+p=df["table"]
+#alt satırda aykırı değerleri bulmayı boxplot ile bulmuş olduk.
+print(sns.boxplot(x=p)) # boxplotta oluşan sağ ve solda ki siyah noktalar aykırı değerleri oluşturur. bu sayede aykırı değerleri bulduk.
+# şimdi biz bi değere aykırı değer demek için eşik değer belirlememiz gerekir. şimdi bunu yapacağız.
+Q1=p.quantile(0.25) # Veri seti küçükten büyüğe sıralayınca veri setinin yüzde 25 lik indexini verir.
+Q3=p.quantile(0.75) # bu da yüzde 75 lik kısmını verir.
+print(Q1) # 56.0
+IQR=Q3-Q1
+alt_sınır=Q1-1.5*IQR
+ust_sınır=Q3+1.5*IQR
+print(alt_sınır) # 51.5 çıktı. demek ki bunun altında ki değerler aykırı değerlermiş.
+print(ust_sınır) # 63.5 cıktı. demek ki bunun ustunde ki degerler yine aynı şekilde aykırı değer olarak alınır.
+# aslında boxplotta alt ve ust sınır ıkı cızgı ıe belırlenmıs ama tam net degerlerı boylece bulmus olduk.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

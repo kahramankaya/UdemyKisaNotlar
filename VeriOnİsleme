@@ -22,7 +22,11 @@ print(alt_sınır) # 51.5 çıktı. demek ki bunun altında ki değerler aykır�
 print(ust_sınır) # 63.5 cıktı. demek ki bunun ustunde ki degerler yine aynı şekilde aykırı değer olarak alınır.
 # aslında boxplotta alt ve ust sınır ıkı cızgı ıe belırlenmıs ama tam net degerlerı boylece bulmus olduk.
 
+print(p<alt_sınır) # burada true false degerlerı cıktı. burada aykırı deger mı degıl mı dıye sorguladık. aykırı deger ıse true degılse false dondur dedık.
+print((p<alt_sınır) | (p>ust_sınır)) # alt sınırdan kucuk ve ya ust sınırdan buyuk deger ise aykırıdır ve true dondur degılse false dedık. ortada ki ya da işlemini yaptırdı gıbı dusun.
 
+aykırı_degerler=(p<alt_sınır) | (p>ust_sınır)
+print(p[aykırı_degerler]) # fancy ile bu sefer yukarda false donen degerlerın kendısı yazdırdık. bu sayede hangı degerlerın aykırı oldugunu net bır sekılde gorduk.
 
 
 

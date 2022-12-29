@@ -26,7 +26,10 @@ print(p<alt_sınır) # burada true false degerlerı cıktı. burada aykırı deg
 print((p<alt_sınır) | (p>ust_sınır)) # alt sınırdan kucuk ve ya ust sınırdan buyuk deger ise aykırıdır ve true dondur degılse false dedık. ortada ki ya da işlemini yaptırdı gıbı dusun.
 
 aykırı_degerler=(p<alt_sınır) | (p>ust_sınır)
-print(p[aykırı_degerler]) # fancy ile bu sefer yukarda false donen degerlerın kendısı yazdırdık. bu sayede hangı degerlerın aykırı oldugunu net bır sekılde gorduk.
+print(p[aykırı_degerler]) # fancy ile bu sefer yukarda false donen degerlerın kendısı yazdırdık. bu sayede hangı degerlerın aykırı oldugunu net bır sekılde gorduk. boylece ındexlerı ıle bırlıkte hangısının aykırı oldugunu bulmus olduk.
+# ama dıyelım kı sadece aykırı olan degerlerın ındexıne ulaşmak ıstıyoruz o zaman alt satırda kını yapmalısın.
+print(p[aykırı_degerler].index) # boylece aykrıı degerlerın sadece ındexını yazdırmıs olduk.
+
 
 
 

@@ -30,6 +30,16 @@ print(p[aykırı_degerler]) # fancy ile bu sefer yukarda false donen degerlerın
 # ama dıyelım kı sadece aykırı olan degerlerın ındexıne ulaşmak ıstıyoruz o zaman alt satırda kını yapmalısın.
 print(p[aykırı_degerler].index) # boylece aykrıı degerlerın sadece ındexını yazdırmıs olduk.
 
+#SİLME: burada istediğimiz aykırı değeri silme işini yapmış olacağız.
+import pandas as pd
+df=pd.DataFrame(p)
+# şimdi aşağıda bu değerlerin içinden aykırı değerleri çıkarıp tertemiz bir dataframe elde edeceğiz. ve aşağıda ki tilda işareti koşulu sağlamayanları al işine yarar.
+t_df=df[~((p<alt_sınır) | (p>ust_sınır))]
+print(t_df)
+
+print(df.shape) # (53940, 1)
+print(t_df.shape) # (53335, 1) goruldugu uzere  ust satırda kı gozlem bırımı sayısından daha azaldı. demek ki 605 tane aykırı deger varmış.
+
 
 
 

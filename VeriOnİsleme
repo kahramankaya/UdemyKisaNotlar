@@ -30,6 +30,7 @@ print(p[aykırı_degerler]) # fancy ile bu sefer yukarda false donen degerlerın
 # ama dıyelım kı sadece aykırı olan degerlerın ındexıne ulaşmak ıstıyoruz o zaman alt satırda kını yapmalısın.
 print(p[aykırı_degerler].index) # boylece aykrıı degerlerın sadece ındexını yazdırmıs olduk.
 
+# AYKIRI DEGERLER ILE SAVASMA YONTEMLERIMIZ : SİLME, ORTALAMA İLE DEGISTIRME, BASKILAMA YONTEMLERIDIR.
 #SİLME: burada istediğimiz aykırı değeri silme işini yapmış olacağız.
 import pandas as pd
 df=pd.DataFrame(p)
@@ -46,6 +47,7 @@ p[aykırı_degerler]=p.mean()
 print(p[aykırı_degerler])
 
 
+# BASKILAMA YÖNTEMİ:
 
 
 

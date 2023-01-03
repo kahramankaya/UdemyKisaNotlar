@@ -48,6 +48,11 @@ print(p[aykırı_degerler])
 
 
 # BASKILAMA YÖNTEMİ:
+p[aykırı_degerler]=alt_sınır
+print(p[aykırı_degerler])
+
+
+
 
 
 

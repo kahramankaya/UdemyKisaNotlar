@@ -41,6 +41,10 @@ print(df.shape) # (53940, 1)
 print(t_df.shape) # (53335, 1) goruldugu uzere  ust satırda kı gozlem bırımı sayısından daha azaldı. demek ki 605 tane aykırı deger varmış.
 
 
+#ORTALAMA İLE DOLDURMA: bu da yukarda kı sılme ışlemi gibi aykırı degerler ile savaşma şekliimizdir. burada aykırı degerlerin yerine ortalama degerler atıyoruz.
+p[aykırı_degerler]=p.mean()
+print(p[aykırı_degerler])
+
 
 
 

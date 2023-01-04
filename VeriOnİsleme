@@ -70,6 +70,33 @@ df_scores=clf.negative_outlier_factor_
 print(df_scores)
 
 
+# ÇOK DEĞİŞKENLİ AYKIRI GÖZLEM ANALİZİ:
+# LOCAL OUTLİER FACTOR: cok degıskenlı de bu algorıtma kullanılır. tek degıskenlı de ıse basıtce boxplot ıle cozume gıdılebılır.
+import seaborn as sns
+import pandas as pd
+diamonds=sns.load_dataset("diamonds")
+diamonds=diamonds.select_dtypes(include=["float64","int64"])
+df=diamonds.copy()
+df=df.dropna()
+df=df["table"]
+df1=pd.DataFrame(df)
+import numpy as np
+from sklearn.neighbors import LocalOutlierFactor # sklearn.neighbors bu kütüphaneden localoutlierfactor fonksıyonunu cektık.
+clf=LocalOutlierFactor(n_neighbors=20,contamination=0.1) # birincisi komşu sayısı ikincisi ise yogunluk veren manuel olarak gırılmesı gereken degerlerdır.
+df2=clf.fit_predict(df1)
+df_scores=clf.negative_outlier_factor_
+print(df_scores)
+print(np.sort(df_scores)[0:10])
+esik_deger=np.sort(df_scores)[12] # -5175000000.96129  biz şuan bu degerı kendımıze esık deger sectik. artık bundan buyuk ya da kucuk degerlerı ıstegımıze gore aykırı degerler olarak alabılırız.
+print(esik_deger)
+aykırı_tf=df_scores>esik_deger # score lardan esık deger den buyuk degerlerı aykırı dıye kabul ettik.
+print(aykırı_deger) # true false seklınde cıktı.
+print(df[df_scores>esik_deger]) # aslında bız coklu degıskende sılme ıslemı yapmıs olduk burada. cunku burada aykırı degerlerı almadık.
+# mesela burada almadıgımız aykırı degerlerın yerıne ortalama deger de atayabılırız.
+
+
+
+
 
 
 

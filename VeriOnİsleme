@@ -94,7 +94,7 @@ print(aykırı_deger) # true false seklınde cıktı.
 print(df[df_scores>esik_deger]) # aslında bız coklu degıskende sılme ıslemı yapmıs olduk burada. cunku burada aykırı degerlerı almadık.
 # mesela burada almadıgımız aykırı degerlerın yerıne ortalama deger de atayabılırız.
 
-
+# 237.videodayım.
 
 
 

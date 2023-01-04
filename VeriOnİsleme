@@ -52,6 +52,27 @@ p[aykırı_degerler]=alt_sınır
 print(p[aykırı_degerler])
 
 
+# ÇOK DEĞİŞKENLİ AYKIRI GÖZLEM ANALİZİ:
+# LOCAL OUTLİER FACTOR: cok degıskenlı de bu algorıtma kullanılır. tek degıskenlı de ıse basıtce boxplot ıle cozume gıdılebılır.
+import seaborn as sns
+import pandas as pd
+diamonds=sns.load_dataset("diamonds")
+diamonds=diamonds.select_dtypes(include=["float64","int64"])
+df=diamonds.copy()
+df=df.dropna()
+df=df["table"]
+df1=pd.DataFrame(df)
+import numpy as np
+from sklearn.neighbors import LocalOutlierFactor # sklearn.neighbors bu kütüphaneden localoutlierfactor fonksıyonunu cektık.
+clf=LocalOutlierFactor(n_neighbors=20,contamination=0.1) # birincisi komşu sayısı ikincisi ise yogunluk veren manuel olarak gırılmesı gereken degerlerdır.
+df2=clf.fit_predict(df1)
+df_scores=clf.negative_outlier_factor_
+print(df_scores)
+
+
+
+
+
 
 
 
